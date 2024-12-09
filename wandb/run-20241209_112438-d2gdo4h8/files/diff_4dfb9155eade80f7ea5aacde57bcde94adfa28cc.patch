@@ -1,0 +1,21 @@
+diff --git a/clean_data.py b/clean_data.py
+index f471bc8..15607fa 100644
+--- a/clean_data.py
++++ b/clean_data.py
+@@ -68,8 +68,14 @@ def clean_data():
+ 
+     # converting dataset back to csv file and uploading it to WandB
+     logger.info("Uploading cleaned data to Weights & Biases")
+-    cleaned_file = "cleaned_credit_card_fraud.csv"
+-    df.to_csv(cleaned_file, index=False)
++    cleaned_file = "cleaned_credit_card_fraud.parquet"
++    df.to_parquet(cleaned_file, index=False)
++
++    #
++
++
++
++
+ 
+     artifact = wandb.Artifact(
+         name="cleaned_credit_card_data",
