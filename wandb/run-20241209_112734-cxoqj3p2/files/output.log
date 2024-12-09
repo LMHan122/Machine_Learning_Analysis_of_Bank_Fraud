@@ -46,3 +46,6 @@ Data columns (total 16 columns):
  15  trans_type  1296675 non-null  category
 dtypes: category(6), datetime64[ns](2), float64(5), int64(2), object(1)
 memory usage: 110.1+ MB
+0.15567898750305176
+-1649.0293662548065
+9.180264472961426

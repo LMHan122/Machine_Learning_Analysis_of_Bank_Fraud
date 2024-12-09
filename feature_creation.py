@@ -3,11 +3,13 @@ import logging
 import wandb
 import os
 import wandb
+from time import time, sleep
+from haversine import haversine, Unit
 
 
 def feature_creation():
     # starting logging
-    # starting logging
+    start_time = time()
     logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s")
     logger = logging.getLogger()
 
@@ -34,7 +36,7 @@ def feature_creation():
     # starting feature engineering
 
     # creating new transaction type column
-    logger.info("Creating new column \'trans_type\'.")
+    logger.info("Creating new column 'trans_type'.")
     transaction_map = {
         "shopping_net": 1,
         "misc_net": 1,
@@ -52,18 +54,47 @@ def feature_creation():
         "travel": 0,
     }
 
-    #mapping values to new column
-    df['trans_type'] = df['category'].map(transaction_map).astype('category')
-    logger.info("New column \'trans_type\' added.")
+    # mapping values to new column
+    df["trans_type"] = df["category"].map(transaction_map).astype("category")
+    logger.info("New column 'trans_type' added.")
 
-    #accessing premapped customer lat and long values
-    #this file was created in Feature_Engineering_Test.ipynb
-    cust_loc = pd.read_csv(r'data/customer_locations.csv')
+    # accessing pre-mapped customer lat and long values
+    # this file was created in Feature_Engineering_Test.ipynb
+    logger.info(
+        "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
+    )
+    cust_loc = pd.read_csv(r"data/customer_locations.csv")
 
+    df = df.merge(
+        cust_loc[["city", "state", "cust_lat", "cust_long"]],
+        on=["city", "state"],
+        how="left",
+    )
 
+    # dropping city column
+    logger.info("Dropping 'city' column.")
+    df.drop(["city"], axis=1, inplace=True)
 
+    logger.info("Creating new columns 'trans_distance_km' and 'merch_distance_km'.")
+    # creating column for distance between customer's city and the transaction location
+    df["trans_distance_km"] = df.swifter.apply(
+        lambda row: haversine(
+            (row["cust_lat"], row["cust_long"]),
+            (row["lat"], row["long"]),
+            unit=Unit.KILOMETERS,
+        ),
+        axis=1,
+    )
+    # creating column for distance between customer's city and merchant's location
+    df["merch_cust_km"] = df.swifter.apply(
+        lambda row: haversine(
+            (row["merch_lat"], row["merch_long"]),
+            (row["lat"], row["long"]),
+            unit=Unit.KILOMETERS,
+        ),
+        axis=1,
+    )
 
-
-
-
-
+    end_time = time()
+    total_time = end_time - start_time
+    logger.info(f"Total time {total_time}s")
