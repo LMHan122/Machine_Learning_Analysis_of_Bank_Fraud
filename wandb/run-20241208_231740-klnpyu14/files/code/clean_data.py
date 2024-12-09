@@ -6,9 +6,7 @@ import os
 
 def clean_data():
     # starting logging
-    logging.basicConfig(
-        level=logging.INFO, format="%(asctime)-20s %(message)s"
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s")
     logger = logging.getLogger()
 
     # setting up WandB
@@ -17,8 +15,10 @@ def clean_data():
 
     try:
         # grabbing the dataset from WandB
-        logger.info('Pulling original dataset from WandB')
-        artifact = run.use_artifact('lhan122-student/credit_card_fraud/credit_card_data:v0', type='dataset')
+        logger.info("Pulling original dataset from WandB")
+        artifact = run.use_artifact(
+            "lhan122-student/credit_card_fraud/credit_card_data:v0", type="dataset"
+        )
         artifact_dir = artifact.download()
         file_path = os.path.join(artifact_dir, "credit_card_transactions.csv")
         df = pd.read_csv(file_path)
@@ -27,7 +27,6 @@ def clean_data():
         logger.error(f"Error loading dataset: {e}")
         run.finish()
         raise
-
 
     # dropping columns
     # dropping unnamed column
@@ -74,7 +73,7 @@ def clean_data():
     artifact = wandb.Artifact(
         name="cleaned_credit_card_data:v0",
         type="dataset",
-        description="Cleaned credit card fraud dataset"
+        description="Cleaned credit card fraud dataset",
     )
     artifact.add_file(cleaned_file)
     run.log_artifact(artifact)
@@ -82,6 +81,7 @@ def clean_data():
     # finishing WandB run
     run.finish()
     logger.info("Data cleaning complete.")
+
 
 if __name__ == "__main__":
     clean_data()

@@ -5,9 +5,7 @@ import wandb
 
 def clean_data():
     # starting logging
-    logging.basicConfig(
-        level=logging.INFO, format="%(asctime)-20s %(message)s"
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s")
     logger = logging.getLogger()
 
     # setting up WandB
@@ -16,15 +14,16 @@ def clean_data():
 
     try:
         # grabbing the dataset from WandB
-        logger.info('Pulling original dataset from WandB')
-        artifact = run.use_artifact('lhan122-student/credit_card_fraud/credit_card_data:v0', type='dataset')
+        logger.info("Pulling original dataset from WandB")
+        artifact = run.use_artifact(
+            "lhan122-student/credit_card_fraud/credit_card_data:v0", type="dataset"
+        )
         df = pd.read_parquet(artifact.file())
         logger.info(f"Dataset loaded successfully with shape: {df.shape}")
     except Exception as e:
         logger.error(f"Error loading dataset: {e}")
         run.finish()
         raise
-
 
     # dropping columns
     # dropping unnamed column
@@ -75,6 +74,7 @@ def clean_data():
     # finishing WandB run
     run.finish()
     logger.info("Data cleaning complete.")
+
 
 if __name__ == "__main__":
     clean_data()

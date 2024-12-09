@@ -70,5 +70,6 @@ def clean_data():
     run.finish()
     logger.info("Data cleaning complete.")
 
+
 if __name__ == "__main__":
     clean_data()
