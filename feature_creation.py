@@ -111,7 +111,43 @@ def feature_creation():
     df['hour'] = df['trans_dt'].dt.hour
     logger.info("New datetime columns added.")
 
+    #creating the rolling columns
+    logger.info("Creating new rolling columns.")
+    #double-checking column is in the right type and sorted
+    df['trans_dt'] = pd.to_datetime(df['trans_dt'])
+    df = df.sort_values(['cc_num', 'trans_dt'])
 
+    logger.info('Creating rolling trans by last hour column.')
+    df['trans_by_last_hr'] = (
+        df.groupby('cc_num')
+        .rolling('1H', on='trans_dt')['trans_dt']
+        .count()
+        .reset_index(drop=True)
+    )
+
+    logger.info('Creating rolling trans by last day column.')
+    df['trans_by_last_day'] = (
+        df.groupby('cc_num')
+        .rolling('1D', on='trans_dt')['trans_dt']
+        .count()
+        .reset_index(drop=True)
+    )
+
+    logger.info('Creating rolling trans amount by last hour column.')
+    df['amt_by_last_hr'] = (
+        df.groupby('cc_num')
+        .rolling('1H', on='trans_dt')['amt']
+        .sum()
+        .reset_index(drop=True)
+    )
+
+    logger.info('Creating rolling trans amount by last day column.')
+    df['amt_by_last_hr'] = (
+        df.groupby('cc_num')
+        .rolling('1D', on='trans_dt')['amt']
+        .sum()
+        .reset_index(drop=True)
+    )
 
 
 
