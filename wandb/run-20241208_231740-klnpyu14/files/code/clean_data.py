@@ -72,7 +72,7 @@ def clean_data():
     df.to_csv(cleaned_file, index=False)
 
     artifact = wandb.Artifact(
-        name="cleaned_credit_card_data",
+        name="cleaned_credit_card_data:v0",
         type="dataset",
         description="Cleaned credit card fraud dataset"
     )

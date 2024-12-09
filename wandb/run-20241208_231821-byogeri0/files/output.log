@@ -1,0 +1,11 @@
+2024-12-08 23:18:22,449 Pulling original dataset from WandB
+[34m[1mwandb[0m: Downloading large artifact credit_card_data:v0, 337.74MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.5
+2024-12-08 23:18:25,852 Dataset loaded successfully with shape: (1296675, 24)
+2024-12-08 23:18:25,852 Starting Preprocessing
+2024-12-08 23:18:25,868 Dropping columns
+2024-12-08 23:18:26,042 Changing column names
+2024-12-08 23:18:26,046 Dropping duplicate records (if any)
+2024-12-08 23:18:26,939 Changing column data types
+2024-12-08 23:18:27,593 Uploading cleaned data to Weights & Biases

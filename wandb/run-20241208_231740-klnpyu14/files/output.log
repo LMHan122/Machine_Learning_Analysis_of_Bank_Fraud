@@ -1,0 +1,20 @@
+2024-12-08 23:17:41,527 Pulling original dataset from WandB
+[34m[1mwandb[0m: Downloading large artifact credit_card_data:v0, 337.74MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.5
+2024-12-08 23:17:44,939 Dataset loaded successfully with shape: (1296675, 24)
+2024-12-08 23:17:44,955 Starting Preprocessing
+2024-12-08 23:17:44,955 Dropping columns
+2024-12-08 23:17:45,128 Changing column names
+2024-12-08 23:17:45,137 Dropping duplicate records (if any)
+2024-12-08 23:17:46,021 Changing column data types
+2024-12-08 23:17:46,682 Uploading cleaned data to Weights & Biases
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\clean_data.py", line 87, in <module>
+    clean_data()
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\clean_data.py", line 74, in clean_data
+    artifact = wandb.Artifact(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\wandb\sdk\artifacts\artifact.py", line 127, in __init__
+    raise ValueError(
+ValueError: Artifact name may only contain alphanumeric characters, dashes, underscores, and dots. Invalid name: cleaned_credit_card_data:v0
