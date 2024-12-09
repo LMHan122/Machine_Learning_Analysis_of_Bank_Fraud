@@ -95,6 +95,35 @@ def feature_creation():
         axis=1,
     )
 
+    #creating new timedate columns
+    #date related columns
+    logger.info("Creating new timedate columns.")
+    df['date'] = df['trans_date'].dt.date
+    df['year'] = df['trans_dt'].dt.year
+    df['month'] = df['trans_dt'].dt.month
+    df['day'] = df['trans_dt'].dt.day
+    df['quarter'] = df['trans_dt'].dt.quarter
+    df['week'] = df['trans_dt'].dt.week
+    df['dayofweek'] = df['trans_dt'].dt.dayofweek
+
+    #time related columns
+    df['time'] = df['trans_dt'].dt.time
+    df['hour'] = df['trans_dt'].dt.hour
+    logger.info("New datetime columns added.")
+
+
+
+
+
+
+
+
+
+
+
     end_time = time()
     total_time = end_time - start_time
     logger.info(f"Total time {total_time}s")
+
+
+if __name__ == "__main__":
