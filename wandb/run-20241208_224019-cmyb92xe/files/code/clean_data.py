@@ -1,7 +1,6 @@
 import pandas as pd
 import logging
 import wandb
-import os
 
 
 def clean_data():
@@ -13,15 +12,13 @@ def clean_data():
 
     # setting up WandB
     logger.info("Starting a WandB run.")
-    run = wandb.init(project="credit_card_fraud", save_code=True)
+    run = wandb.init(project="credit_card_data", save_code=True)
 
     try:
         # grabbing the dataset from WandB
         logger.info('Pulling original dataset from WandB')
         artifact = run.use_artifact('lhan122-student/credit_card_fraud/credit_card_data:v0', type='dataset')
-        artifact_dir = artifact.download()
-        file_path = os.path.join(artifact_dir, "credit_card_transactions.csv")
-        df = pd.read_csv(file_path)
+        df = pd.read_parquet(artifact.file())
         logger.info(f"Dataset loaded successfully with shape: {df.shape}")
     except Exception as e:
         logger.error(f"Error loading dataset: {e}")
@@ -68,9 +65,9 @@ def clean_data():
 
     # converting dataset back to csv file and uploading it to WandB
     logger.info("Uploading cleaned data to Weights & Biases")
-    dataset = df.to_csv("cleaned_credit_card_fraud.csv", index=False)
+    df.to_csv("cleaned_credit_card_fraud.csv", index=False)
 
-    artifact = wandb.Artifact(dataset, type="dataset")
+    artifact = wandb.Artifact(name="cleaned_credit_card_fraud.csv", type="dataset")
     artifact.add_file("cleaned_credit_card_fraud.csv")
     run.log_artifact(artifact)
     logger.info("Cleand data uploaded to Weights & Biases is complete.")

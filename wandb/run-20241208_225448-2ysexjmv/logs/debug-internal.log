@@ -1,0 +1,17 @@
+{"time":"2024-12-08T22:54:48.1828368-06:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-08T22:54:48.1828368-06:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\wandb\\run-20241208_225448-2ysexjmv\\logs\\debug-core.log"}
+{"time":"2024-12-08T22:54:48.29107-06:00","level":"INFO","msg":"created new stream","id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:48.29107-06:00","level":"INFO","msg":"stream: started","id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:48.29107-06:00","level":"INFO","msg":"handler: started","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:48.29107-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:48.29107-06:00","level":"INFO","msg":"sender: started","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:48.5369228-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-08T22:54:49.4803565-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-08T22:54:49.4808654-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-08T22:54:50.4870587-06:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"saving job artifact","runtime_seconds":0.9279107},{"desc":"uploading config.yaml","runtime_seconds":0.8252996,"progress":"478B/478B"}],"total_operations":2}}
+{"time":"2024-12-08T22:54:52.9435715-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-08T22:54:54.10223-06:00","level":"INFO","msg":"stream: closing","id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:54.10223-06:00","level":"INFO","msg":"handler: closed","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:54.10223-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:54.10223-06:00","level":"INFO","msg":"sender: closed","stream_id":"2ysexjmv"}
+{"time":"2024-12-08T22:54:54.10223-06:00","level":"INFO","msg":"stream: closed","id":"2ysexjmv"}

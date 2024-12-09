@@ -1,7 +1,6 @@
 import pandas as pd
 import logging
 import wandb
-import os
 
 
 def clean_data():
@@ -19,9 +18,7 @@ def clean_data():
         # grabbing the dataset from WandB
         logger.info('Pulling original dataset from WandB')
         artifact = run.use_artifact('lhan122-student/credit_card_fraud/credit_card_data:v0', type='dataset')
-        artifact_dir = artifact.download()
-        file_path = os.path.join(artifact_dir, "credit_card_transactions.csv")
-        df = pd.read_csv(file_path)
+        df = pd.read_csv(artifact.file())
         logger.info(f"Dataset loaded successfully with shape: {df.shape}")
     except Exception as e:
         logger.error(f"Error loading dataset: {e}")

@@ -1,0 +1,59 @@
+diff --git a/clean_data.py b/clean_data.py
+index 0fb1bae..43270ca 100644
+--- a/clean_data.py
++++ b/clean_data.py
+@@ -6,20 +6,25 @@ import wandb
+ def clean_data():
+     # starting logging
+     logging.basicConfig(
+-        level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
++        level=logging.INFO, format="%(asctime)-20s %(message)s"
+     )
+     logger = logging.getLogger()
+ 
+-    # setting up wandb
++    # setting up WandB
+     logger.info("Starting a WandB run.")
+-    run = wandb.init(project="credit_card_data", save_code=True)
++    run = wandb.init(project="credit_card_fraud", save_code=True)
++
++    try:
++        # grabbing the dataset from WandB
++        logger.info('Pulling original dataset from WandB')
++        artifact = run.use_artifact('lhan122-student/credit_card_fraud/credit_card_data:v0', type='dataset')
++        df = pd.read_csv(artifact.file())
++        logger.info(f"Dataset loaded successfully with shape: {df.shape}")
++    except Exception as e:
++        logger.error(f"Error loading dataset: {e}")
++        run.finish()
++        raise
+ 
+-    # grabbing the dataset from wandb
+-    logger.info("Pulling original dataset from WandB")
+-    artifact = run.use_artifact(
+-        "lhan122-student/credit_card_fraud/credit_card_data:v0", type="dataset"
+-    )
+-    df = pd.read_parquet(artifact.file())
+ 
+     # dropping columns
+     # dropping unnamed column
+@@ -60,12 +65,16 @@ def clean_data():
+ 
+     # converting dataset back to csv file and uploading it to WandB
+     logger.info("Uploading cleaned data to Weights & Biases")
+-    df.to_csv("cleaned_credit_card_fraud.csv", index=False)
+-    artifact = wandb.Artifact(name="cleaned_credit_card_fraud.csv", type="dataset")
++    dataset = df.to_csv("cleaned_credit_card_fraud.csv", index=False)
++
++    artifact = wandb.Artifact(dataset, type="dataset")
+     artifact.add_file("cleaned_credit_card_fraud.csv")
+     run.log_artifact(artifact)
+-    logger.info("Cleand data upload to Weights & Biases is complete.")
++    logger.info("Cleand data uploaded to Weights & Biases is complete.")
+ 
+     # finishing WandB run
+     run.finish()
+     logger.info("Data cleaning complete.")
++
++if __name__ == "__main__":
++    clean_data()
