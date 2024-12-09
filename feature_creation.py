@@ -56,8 +56,8 @@ def feature_creation():
     df['trans_type'] = df['category'].map(transaction_map).astype('category')
     logger.info("New column \'trans_type\' added.")
 
-
     #accessing premapped customer lat and long values
+    #this file was created in Feature_Engineering_Test.ipynb
     cust_loc = pd.read_csv(r'data/customer_locations.csv')
 
 
