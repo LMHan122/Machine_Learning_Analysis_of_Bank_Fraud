@@ -1,6 +1,5 @@
 import pandas as pd
 import logging
-import wandb
 import os
 import wandb
 from geopy.geocoders import Nominatim
