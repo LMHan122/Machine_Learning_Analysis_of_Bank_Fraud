@@ -1,0 +1,16 @@
+{"time":"2024-12-10T00:11:14.3009726-06:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-10T00:11:14.3009726-06:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\wandb\\run-20241210_001114-kz54hqnp\\logs\\debug-core.log"}
+{"time":"2024-12-10T00:11:14.5568446-06:00","level":"INFO","msg":"created new stream","id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:14.5568446-06:00","level":"INFO","msg":"stream: started","id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:14.5568446-06:00","level":"INFO","msg":"handler: started","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:14.5568446-06:00","level":"INFO","msg":"sender: started","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:14.5574836-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:14.7758036-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-10T00:11:36.2989699-06:00","level":"INFO","msg":"stream: closing","id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:36.2989699-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-10T00:11:36.2989699-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-10T00:11:37.4622607-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-10T00:11:37.5840053-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:37.5840053-06:00","level":"INFO","msg":"handler: closed","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:37.5840053-06:00","level":"INFO","msg":"sender: closed","stream_id":"kz54hqnp"}
+{"time":"2024-12-10T00:11:37.5840053-06:00","level":"INFO","msg":"stream: closed","id":"kz54hqnp"}

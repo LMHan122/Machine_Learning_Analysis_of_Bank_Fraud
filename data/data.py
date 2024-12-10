@@ -6,7 +6,7 @@ import wandb
 
 # setting up logger
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
+    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a"
 )
 logger = logging.getLogger()
 

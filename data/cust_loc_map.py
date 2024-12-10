@@ -4,9 +4,10 @@ import wandb
 import os
 import wandb
 from geopy.geocoders import Nominatim
+from time import time,sleep
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
+    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a"
 )
 logger = logging.getLogger()
 
@@ -34,13 +35,16 @@ def get_lat_long(city, state):
         location = geolocator.geocode(f"{city}, {state}")
         if location:
             return location.latitude, location.longitude
+
         else:
             return None, None
     except Exception as e:
         logger.error(f"Error fetching location for {city}, {state}: {e}")
         return None, None
+    finally:
+        sleep(1)
 
-
+logger.info('Getting the geocoding file')
 # apply geocoding
 cust_loc["lat_long"] = cust_loc.apply(
     lambda x: get_lat_long(x["city"], x["state"]), axis=1

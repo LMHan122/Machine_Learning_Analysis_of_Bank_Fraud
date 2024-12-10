@@ -1,0 +1,6 @@
+[34m[1mwandb[0m: Downloading large artifact cleaned_credit_card_data:latest, 85.55MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-09 23:48:22,390 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Glendale%2C+CA&format=json&limit=1
+2024-12-09 23:56:40,652 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Norwich%2C+OH&format=json&limit=1
+2024-12-09 23:56:55,448 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Arnold%2C+MO&format=json&limit=1
