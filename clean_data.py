@@ -66,7 +66,7 @@ def clean_data():
     df[cat_columns] = df[cat_columns].astype("category")
 
     # converting dataset back to csv file and uploading it to WandB
-    logger.info("Uploading cleaned data to Weights & Biases")
+    logger.info("Uploading cleaned data to WandB")
     cleaned_file = "cleaned_credit_card_fraud.parquet"
     df.to_parquet(cleaned_file, index=False)
 

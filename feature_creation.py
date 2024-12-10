@@ -5,6 +5,8 @@ import os
 import wandb
 from time import time, sleep
 from haversine import haversine, Unit
+import swifter
+from rapidfuzz import fuzz, process
 
 
 def feature_creation():
@@ -149,21 +151,72 @@ def feature_creation():
         .reset_index(drop=True)
     )
 
-    ###FIXME: 'job' column with the fuzz
-    jobs = jobs_db["job"].drop_duplicates()
+    # creating list of jobs and count of each job
+    logger.info("Creating map for job titles.")
+    df["job"] = df["job"].str.lower().str.strip()
+
+    # creating list fo all unique job titles
+    jobs = df["job"].drop_duplicates()
+
+    # creating an empty set for rapidfuzz
+    similar_jobs = set()
+
+    # using rapidfuzz, compairing job titles together and creating a list
+    # for values that have a similarity score higher then 95
+    logger.info("Running RapidFuzz.")
     for i, job in enumerate(jobs):
         matches = process.extract(
-            job, jobs[i + 1 :], scorer=fuzz.token_sort_ratio, limit=10
+            job, jobs[i + 1 :], scorer=fuzz.token_sort_ratio, processor=None, limit=5
         )
-        for match in matches:
-            if match[1] >= 95:  # has similarity score of at least 80
-                similar_jobs.append((job, match[0], match[1]))
 
-    ###FIXME: 'age_at_trans'
+        # if the similarity score is 95 or higher, job titles are added to this list
+        for match in matches:
+            if match[1] >= 95:
+                similar_jobs.add((job, match[0]))
+
+    # creating empty dict for map
+    job_map = {}
+
+    # picking the shortest job title as the job title to use
+    for job1, job2 in similar_jobs:
+        j1 = job_map.get(job1, job1)
+        j2 = job_map.get(job2, job2)
+
+        # picking the shortest job title
+        short_job = min(j1, j2)
+        job_map[job1] = short_job
+        job_map[job2] = short_job
+
+    logger.info("Applying Job Titles to job column.")
+    # applying the job titles map
+    df["job"] = df["job"].map(job_map)
+
+    ###creating 'age_at_trans' column
+    logger.info("Creating age_at_trans column.")
+    df["age_at_trans"] = df["trans_dt"] - df["dob"].dt.days / 365.25
+
+    logger.info("Feature Creation Done")
+
+    logger.info("Uploading final dataset to WandB.")
+    final_file = "final_credit_card_fraud.parquet"
+    df.to_parquet(final_file, index=False)
+
+    artifact = wandb.Artifact(
+        name="final_credit_card_data",
+        type="dataset",
+        description="Final dataset with all features created.",
+    )
+    artifact.add_file(final_file)
+    run.log_artifact(artifact)
+
+    # finishing wandb run
+    run.finish()
 
     end_time = time()
     total_time = end_time - start_time
     logger.info(f"Total time {total_time}s")
+
+    logger.info("Feature Creation Done")
 
 
 if __name__ == "__main__":
