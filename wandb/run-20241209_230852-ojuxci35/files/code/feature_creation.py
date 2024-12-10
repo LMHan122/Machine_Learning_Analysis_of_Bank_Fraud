@@ -7,25 +7,7 @@ from time import time, sleep
 from haversine import haversine, Unit
 import swifter
 from rapidfuzz import fuzz, process
-from geopy.geocoders import Nominatim
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
-)
-logger = logging.getLogger()
-
-geolocator = Nominatim(user_agent="geoapi")
-
-def get_lat_long(city=None, state=None):
-    try:
-        location = geolocator.geocode(f"{city}, {state}")
-        if location:
-            return location.latitude, location.longitude
-        else:
-            return None, None
-    except Exception as e:
-        logger.error(f"Error fetching location for {city}, {state}: {e}")
-        return None, None
 
 def feature_creation():
     # starting logging
@@ -80,21 +62,10 @@ def feature_creation():
 
     # accessing pre-mapped customer lat and long values
     # this file was created in Feature_Engineering_Test.ipynb
-    #FIXME: Logger info will need to be corrected if rest of file works
     logger.info(
         "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
     )
-    #cust_loc = pd.read_parquet(r"data/cust_loc.parquet")
-    #FIXME: geting lat and long
-    cust_loc = df[["city", "state"]].drop_duplicates()
-
-    cust_loc["lat_long"] = cust_loc.apply(
-        lambda x: get_lat_long(x["city"], x["state"]), axis=1
-    )
-    cust_loc[["cust_lat", "cust_long"]] = pd.DataFrame(
-        cust_loc["lat_long"].tolist(), index=cust_loc.index
-    )
-
+    cust_loc = pd.read_parquet(r"data/customer_locations.parquet")
 
     df = df.merge(
         cust_loc[["city", "state", "cust_lat", "cust_long"]],
@@ -129,7 +100,7 @@ def feature_creation():
     # creating new timedate columns
     # date related columns
     logger.info("Creating new timedate columns.")
-    df["date"] = df["trans_dt"].dt.date
+    df["date"] = df["trans_date"].dt.date
     df["year"] = df["trans_dt"].dt.year
     df["month"] = df["trans_dt"].dt.month
     df["day"] = df["trans_dt"].dt.day

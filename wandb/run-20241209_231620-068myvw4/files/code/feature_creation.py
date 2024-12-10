@@ -9,11 +9,6 @@ import swifter
 from rapidfuzz import fuzz, process
 from geopy.geocoders import Nominatim
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
-)
-logger = logging.getLogger()
-
 geolocator = Nominatim(user_agent="geoapi")
 
 def get_lat_long(city=None, state=None):
@@ -80,7 +75,6 @@ def feature_creation():
 
     # accessing pre-mapped customer lat and long values
     # this file was created in Feature_Engineering_Test.ipynb
-    #FIXME: Logger info will need to be corrected if rest of file works
     logger.info(
         "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
     )
@@ -129,7 +123,7 @@ def feature_creation():
     # creating new timedate columns
     # date related columns
     logger.info("Creating new timedate columns.")
-    df["date"] = df["trans_dt"].dt.date
+    df["date"] = df["trans_date"].dt.date
     df["year"] = df["trans_dt"].dt.year
     df["month"] = df["trans_dt"].dt.month
     df["day"] = df["trans_dt"].dt.day

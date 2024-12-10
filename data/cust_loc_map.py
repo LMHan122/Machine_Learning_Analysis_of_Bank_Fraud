@@ -5,8 +5,13 @@ import os
 import wandb
 from geopy.geocoders import Nominatim
 
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="w"
+)
+logger = logging.getLogger()
 
 # grabbing cleaned dataset from WandB
+logging.info('Getting the dataset from WandB')
 run = wandb.init()
 artifact = run.use_artifact(
     "lhan122-student/credit_card_fraud/cleaned_credit_card_data:latest", type="dataset"
@@ -14,6 +19,7 @@ artifact = run.use_artifact(
 artifact_dir = artifact.download()
 file_path = os.path.join(artifact_dir, "cleaned_credit_card_fraud.parquet")
 df = pd.read_parquet(file_path)
+
 
 # creating map for customer location
 cust_loc = df[["city", "state"]].drop_duplicates()
@@ -45,7 +51,7 @@ cust_loc[["cust_lat", "cust_long"]] = pd.DataFrame(
 
 # uploading it to WandB as well for record keeping
 cust_loc_file = "cust_loc.parquet"
-df.to_parquet(cust_loc_file, index=False)
+cust_loc.to_parquet(cust_loc_file, index=False)
 
 artifact = wandb.Artifact(
     name="cust_loc_data",

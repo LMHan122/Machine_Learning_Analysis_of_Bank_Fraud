@@ -1,0 +1,22 @@
+2024-12-09 23:09:40,695 Pulling cleaned dataset from WandB
+[34m[1mwandb[0m: Downloading large artifact cleaned_credit_card_data:latest, 85.55MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-09 23:09:42,119 Dataset loaded successfully with shape: (1296675, 15)
+2024-12-09 23:09:42,122 Creating new column 'trans_type'.
+2024-12-09 23:09:42,139 New column 'trans_type' added.
+2024-12-09 23:09:42,139 Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns.
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\feature_creation.py", line 223, in <module>
+    feature_creation()
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\feature_creation.py", line 71, in feature_creation
+    cust_loc[["city", "state", "cust_lat", "cust_long"]],
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['cust_lat', 'cust_long'] not in index"
