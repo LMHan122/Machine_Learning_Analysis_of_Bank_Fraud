@@ -95,67 +95,71 @@ def feature_creation():
         axis=1,
     )
 
-    #creating new timedate columns
-    #date related columns
+    # creating new timedate columns
+    # date related columns
     logger.info("Creating new timedate columns.")
-    df['date'] = df['trans_date'].dt.date
-    df['year'] = df['trans_dt'].dt.year
-    df['month'] = df['trans_dt'].dt.month
-    df['day'] = df['trans_dt'].dt.day
-    df['quarter'] = df['trans_dt'].dt.quarter
-    df['week'] = df['trans_dt'].dt.week
-    df['dayofweek'] = df['trans_dt'].dt.dayofweek
+    df["date"] = df["trans_date"].dt.date
+    df["year"] = df["trans_dt"].dt.year
+    df["month"] = df["trans_dt"].dt.month
+    df["day"] = df["trans_dt"].dt.day
+    df["quarter"] = df["trans_dt"].dt.quarter
+    df["week"] = df["trans_dt"].dt.week
+    df["dayofweek"] = df["trans_dt"].dt.dayofweek
 
-    #time related columns
-    df['time'] = df['trans_dt'].dt.time
-    df['hour'] = df['trans_dt'].dt.hour
+    # time related columns
+    df["time"] = df["trans_dt"].dt.time
+    df["hour"] = df["trans_dt"].dt.hour
     logger.info("New datetime columns added.")
 
-    #creating the rolling columns
+    # creating the rolling columns
     logger.info("Creating new rolling columns.")
-    #double-checking column is in the right type and sorted
-    df['trans_dt'] = pd.to_datetime(df['trans_dt'])
-    df = df.sort_values(['cc_num', 'trans_dt'])
+    # double-checking column is in the right type and sorted
+    df["trans_dt"] = pd.to_datetime(df["trans_dt"])
+    df = df.sort_values(["cc_num", "trans_dt"])
 
-    logger.info('Creating rolling trans by last hour column.')
-    df['trans_by_last_hr'] = (
-        df.groupby('cc_num')
-        .rolling('1H', on='trans_dt')['trans_dt']
+    logger.info("Creating rolling trans by last hour column.")
+    df["trans_by_last_hr"] = (
+        df.groupby("cc_num")
+        .rolling("1H", on="trans_dt")["trans_dt"]
         .count()
         .reset_index(drop=True)
     )
 
-    logger.info('Creating rolling trans by last day column.')
-    df['trans_by_last_day'] = (
-        df.groupby('cc_num')
-        .rolling('1D', on='trans_dt')['trans_dt']
+    logger.info("Creating rolling trans by last day column.")
+    df["trans_by_last_day"] = (
+        df.groupby("cc_num")
+        .rolling("1D", on="trans_dt")["trans_dt"]
         .count()
         .reset_index(drop=True)
     )
 
-    logger.info('Creating rolling trans amount by last hour column.')
-    df['amt_by_last_hr'] = (
-        df.groupby('cc_num')
-        .rolling('1H', on='trans_dt')['amt']
+    logger.info("Creating rolling trans amount by last hour column.")
+    df["amt_by_last_hr"] = (
+        df.groupby("cc_num")
+        .rolling("1H", on="trans_dt")["amt"]
         .sum()
         .reset_index(drop=True)
     )
 
-    logger.info('Creating rolling trans amount by last day column.')
-    df['amt_by_last_hr'] = (
-        df.groupby('cc_num')
-        .rolling('1D', on='trans_dt')['amt']
+    logger.info("Creating rolling trans amount by last day column.")
+    df["amt_by_last_hr"] = (
+        df.groupby("cc_num")
+        .rolling("1D", on="trans_dt")["amt"]
         .sum()
         .reset_index(drop=True)
     )
 
+    ###FIXME: 'job' column with the fuzz
+    jobs = jobs_db["job"].drop_duplicates()
+    for i, job in enumerate(jobs):
+        matches = process.extract(
+            job, jobs[i + 1 :], scorer=fuzz.token_sort_ratio, limit=10
+        )
+        for match in matches:
+            if match[1] >= 95:  # has similarity score of at least 80
+                similar_jobs.append((job, match[0], match[1]))
 
-
-
-
-
-
-
+    ###FIXME: 'age_at_trans'
 
     end_time = time()
     total_time = end_time - start_time
@@ -163,3 +167,4 @@ def feature_creation():
 
 
 if __name__ == "__main__":
+    feature_creation()
