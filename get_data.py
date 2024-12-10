@@ -38,7 +38,7 @@ def data_download():
     path = kagglehub.dataset_download("priyamchoksi/credit-card-transactions-dataset")
 
     # Creating destination
-    destination_dir = r"C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\data"
+    destination_dir = r"/data"
     os.makedirs(destination_dir, exist_ok=True)
 
     # Move the files
