@@ -12,7 +12,7 @@ logger = logging.getLogger()
 
 # grabbing cleaned dataset from WandB
 logging.info('Getting the dataset from WandB')
-run = wandb.init()
+run = wandb.init(project="credit_card_fraud", save_code=True)
 artifact = run.use_artifact(
     "lhan122-student/credit_card_fraud/cleaned_credit_card_data:latest", type="dataset"
 )

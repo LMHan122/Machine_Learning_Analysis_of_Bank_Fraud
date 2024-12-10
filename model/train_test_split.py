@@ -3,12 +3,35 @@ import logging
 import pandas as pd
 import wandb
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s",
+                    filemode="a")
 logger = logging.getLogger()
 
-run = wandb.init(job_type="train_val_test_split")
+def train_test_split():
+    run = wandb.init(project="credit_card_fraud", save_code=True)
+
+
+#FIXME: This need to be completely corrected. I got side-tracked trying to fix issues on WandB
+    try:
+        # grabbing the dataset from WandB
+        logger.info("Pulling cleaned dataset from WandB")
+        artifact = run.use_artifact(
+            "lhan122-student/credit_card_fraud/cleaned_credit_card_data:latest",
+            type="dataset",
+        )
+        artifact_dir = artifact.download()
+        file_path = os.path.join(artifact_dir, "cleaned_credit_card_fraud.parquet")
+        df = pd.read_parquet(file_path)
+        logger.info(f"Dataset loaded successfully with shape: {df.shape}")
+    except Exception as e:
+        logger.error(f"Error loading dataset: {e}")
+        run.finish()
+        raise
+
+
+
+
+
 
 
 # Download input artifact. This will also note that this script is using this
