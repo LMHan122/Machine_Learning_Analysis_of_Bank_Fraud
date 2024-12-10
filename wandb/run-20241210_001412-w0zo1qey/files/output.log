@@ -1,0 +1,30 @@
+2024-12-10 00:14:13,544 Pulling cleaned dataset from WandB
+[34m[1mwandb[0m: Downloading large artifact cleaned_credit_card_data:latest, 85.55MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.3
+2024-12-10 00:14:15,116 Dataset loaded successfully with shape: (1296675, 15)
+2024-12-10 00:14:15,116 Creating new column 'trans_type'.
+2024-12-10 00:14:15,132 New column 'trans_type' added.
+2024-12-10 00:14:15,133 Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns.
+2024-12-10 00:14:15,238 Dropping 'city' column.
+2024-12-10 00:14:15,280 Creating new columns 'trans_distance_km' and 'merch_distance_km'.
+Pandas Apply: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1296675/1296675 [00:08<00:00, 144779.86it/s]
+Pandas Apply: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1296675/1296675 [00:08<00:00, 144190.63it/s]
+2024-12-10 00:14:33,549 Creating new timedate columns.
+2024-12-10 00:14:34,006 New datetime columns added.
+2024-12-10 00:14:34,006 Creating new rolling columns.
+2024-12-10 00:14:34,335 Creating rolling trans by last hour column.
+2024-12-10 00:14:35,202 Creating rolling trans by last day column.
+2024-12-10 00:14:36,102 Creating rolling trans amount by last hour column.
+2024-12-10 00:14:36,989 Creating rolling trans amount by last day column.
+2024-12-10 00:14:37,899 Creating map for job titles.
+2024-12-10 00:14:38,009 Running RapidFuzz.
+2024-12-10 00:14:38,072 Applying Job Titles to job column.
+2024-12-10 00:14:38,110 Creating age_at_trans column.
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\feature_creation.py", line 230, in <module>
+    feature_creation()
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\feature_creation.py", line 203, in feature_creation
+    df["age_at_trans"] = df["trans_dt"] - df["dob"].dt.days / 365.25
+                                          ^^^^^^^^^^^^^^^^^
+AttributeError: 'DatetimeProperties' object has no attribute 'days'. Did you mean: 'day'?

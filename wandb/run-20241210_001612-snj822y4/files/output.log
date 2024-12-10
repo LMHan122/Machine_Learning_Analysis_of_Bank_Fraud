@@ -1,0 +1,25 @@
+2024-12-10 00:16:13,428 Pulling cleaned dataset from WandB
+[34m[1mwandb[0m: Downloading large artifact cleaned_credit_card_data:latest, 85.55MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-10 00:16:14,983 Dataset loaded successfully with shape: (1296675, 15)
+2024-12-10 00:16:14,984 Creating new column 'trans_type'.
+2024-12-10 00:16:15,001 New column 'trans_type' added.
+2024-12-10 00:16:15,001 Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns.
+2024-12-10 00:16:15,107 Dropping 'city' column.
+2024-12-10 00:16:15,146 Creating new columns 'trans_distance_km' and 'merch_distance_km'.
+Pandas Apply: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1296675/1296675 [00:08<00:00, 147609.01it/s]
+Pandas Apply: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1296675/1296675 [00:08<00:00, 149454.12it/s]
+2024-12-10 00:16:32,936 Creating new timedate columns.
+2024-12-10 00:16:33,397 New datetime columns added.
+2024-12-10 00:16:33,398 Creating new rolling columns.
+2024-12-10 00:16:33,737 Creating rolling trans by last hour column.
+2024-12-10 00:16:34,589 Creating rolling trans by last day column.
+2024-12-10 00:16:35,500 Creating rolling trans amount by last hour column.
+2024-12-10 00:16:36,386 Creating rolling trans amount by last day column.
+2024-12-10 00:16:37,290 Creating map for job titles.
+2024-12-10 00:16:37,402 Running RapidFuzz.
+2024-12-10 00:16:37,449 Applying Job Titles to job column.
+2024-12-10 00:16:37,490 Creating age_at_trans column.
+2024-12-10 00:16:37,513 Feature Creation Done
+2024-12-10 00:16:37,514 Uploading final dataset to WandB.

@@ -1,0 +1,17 @@
+{"time":"2024-12-10T00:16:12.9353894-06:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-10T00:16:12.9353894-06:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\wandb\\run-20241210_001612-snj822y4\\logs\\debug-core.log"}
+{"time":"2024-12-10T00:16:13.0432942-06:00","level":"INFO","msg":"created new stream","id":"snj822y4"}
+{"time":"2024-12-10T00:16:13.0432942-06:00","level":"INFO","msg":"stream: started","id":"snj822y4"}
+{"time":"2024-12-10T00:16:13.0432942-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:16:13.0432942-06:00","level":"INFO","msg":"sender: started","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:16:13.0432942-06:00","level":"INFO","msg":"handler: started","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:16:13.23896-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-10T00:16:38.8080395-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-10T00:16:38.8085425-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-10T00:16:39.8176942-06:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact final_credit_card_data","runtime_seconds":1.0123756,"subtasks":[{"desc":"final_credit_card_fraud.parquet","runtime_seconds":0.6908575,"progress":"2.0MB/104.2MB"}]}],"total_operations":1}}
+{"time":"2024-12-10T00:17:33.7218136-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-10T00:17:34.8717068-06:00","level":"INFO","msg":"stream: closing","id":"snj822y4"}
+{"time":"2024-12-10T00:17:34.8717068-06:00","level":"INFO","msg":"handler: closed","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:17:34.8717068-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:17:34.8717068-06:00","level":"INFO","msg":"sender: closed","stream_id":"snj822y4"}
+{"time":"2024-12-10T00:17:34.8717068-06:00","level":"INFO","msg":"stream: closed","id":"snj822y4"}

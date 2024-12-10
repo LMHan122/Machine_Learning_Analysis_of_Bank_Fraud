@@ -1,0 +1,11 @@
+wandb: Downloading large artifact final_credit_card_data:v0, 104.22MB. 1 files...
+wandb:   1 of 1 files downloaded.
+Done. 0:0:4.1
+<class 'pandas.core.series.Series'>
+RangeIndex: 1296675 entries, 0 to 1296674
+Series name: age_at_trans
+Non-Null Count    Dtype
+--------------    -----
+1296675 non-null  float64
+dtypes: float64(1)
+memory usage: 9.9 MB

@@ -200,7 +200,7 @@ def feature_creation():
 
     ###creating 'age_at_trans' column
     logger.info("Creating age_at_trans column.")
-    df["age_at_trans"] = (df["trans_dt"] - df["dob"]).dt.days / 365.25
+    df["age_at_trans"] = df["trans_dt"] - df["dob"].dt.days / 365.25
 
     logger.info("Feature Creation Done")
 
