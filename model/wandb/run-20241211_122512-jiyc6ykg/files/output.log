@@ -1,0 +1,38 @@
+[34m[1mwandb[39m[22m: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 12:25:14,045 Preprocessing data
+2024-12-11 12:25:14,045 Dropping columns
+2024-12-11 12:25:14,086 Dropping Nulls
+2024-12-11 12:25:14,140 Encoding categorical variables
+2024-12-11 12:25:15,833 Training XGBClassifier(base_score=None, booster='gblinear', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...)
+C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\xgboost\core.py:158: UserWarning: [12:25:18] WARNING: C:\buildkite-agent\builds\buildkite-windows-cpu-autoscaling-group-i-0c55ff5f71b100e98-1\xgboost\xgboost-ci-windows\src\learner.cc:740:
+Parameters: { "max_depth", "tree_method" } are not used.
+  warnings.warn(smsg, UserWarning)
+2024-12-11 12:25:46,037 Evaluating model
+2024-12-11 12:25:46,082 Precision: 0.1557377049180328
+2024-12-11 12:25:46,098 Recall: 0.015899581589958158
+2024-12-11 12:25:46,129 F1 score: 0.02885345482156416
+2024-12-11 12:25:46,145 AUC: 0.5077029565046636
+2024-12-11 12:25:46,145 Total time to train and evaluate XGBClassifier(base_score=None, booster='gblinear', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...): 30.3202006816864
+2024-12-11 12:25:46,145 Sweep run complete

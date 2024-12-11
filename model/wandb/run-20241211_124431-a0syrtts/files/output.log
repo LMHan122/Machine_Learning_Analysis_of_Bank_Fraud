@@ -1,0 +1,35 @@
+[34m[1mwandb[39m[22m: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 12:44:33,660 Preprocessing data
+2024-12-11 12:44:33,660 Dropping columns
+2024-12-11 12:44:33,703 Dropping Nulls
+2024-12-11 12:44:33,765 Encoding categorical variables
+2024-12-11 12:44:35,498 Training XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=5, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...)
+2024-12-11 12:44:44,167 Evaluating model
+2024-12-11 12:44:44,209 Precision: 0.9433399602385686
+2024-12-11 12:44:44,241 Recall: 0.7941422594142259
+2024-12-11 12:44:44,257 F1 score: 0.862335302135393
+2024-12-11 12:44:44,289 AUC: 0.8969345320901422
+2024-12-11 12:44:44,289 Total time to train and evaluate XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=5, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...): 8.790276765823364
+2024-12-11 12:44:44,291 Sweep run complete

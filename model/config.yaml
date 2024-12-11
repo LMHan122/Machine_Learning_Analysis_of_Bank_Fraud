@@ -1,0 +1,25 @@
+program: train.py
+name: sweep
+method: grid
+metric:
+  goal: maximize
+  name: validation_auc
+parameters:
+  booster:
+    value: 'gbtree'
+  learning_rate:
+    values: [0.1, 0.3]
+  max_depth:
+    values: [3, 5, 7]
+  tree_method:
+    value: 'hist'
+  device:
+    value: 'cuda'
+  random_state:
+    value: 10
+  eval_metric:
+    value: 'auc'
+project: credit_card_fraud
+
+
+

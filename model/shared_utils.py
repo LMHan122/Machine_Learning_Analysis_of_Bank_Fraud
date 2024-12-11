@@ -72,7 +72,7 @@ def train_evaluate_model(model, X_train, X_test, y_train, y_test, run):
     :param y_train: from preprocessing data
     :param y_test: from preprocessing data
     :param run: wandb run
-    :return:
+    :return: precision, recall, f1_score, roc_auc_score
     '''
     logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
     logger = logging.getLogger()
@@ -98,6 +98,7 @@ def train_evaluate_model(model, X_train, X_test, y_train, y_test, run):
     end = time()
     total = end - start
     logger.info(f'Total time to train and evaluate {model}: {total}')
+    return precision, recall, f1, auc
 
 
     #save the model to a pickle file

@@ -1,0 +1,61 @@
+{
+    "os": "Windows-11-10.0.26100-SP0",
+    "python": "3.12.3",
+    "heartbeatAt": "2024-12-11T18:20:32.290059",
+    "startedAt": "2024-12-11T18:20:32.020545",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--booster=gbtree",
+        "--device=cuda",
+        "--eval_metric=auc",
+        "--learning_rate=0.1",
+        "--max_depth=3",
+        "--random_state=10",
+        "--tree_method=hist"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\model\\train.py",
+    "codePathLocal": "train.py",
+    "codePath": "model\\train.py",
+    "git": {
+        "remote": "https://github.com/LMHan122/Machine_Learning_Analysis_of_Bank_Fraud.git",
+        "commit": "8f81059cd31f2646a46b129c8dda7a6f80b53aef"
+    },
+    "email": "lesliemhanson@gmail.com",
+    "root": "C:/Users/eelil/OneDrive/Desktop/Capstone/Machine_Learning_Analysis_of_Bank_Fraud",
+    "host": "Leslie_Desktop",
+    "username": "eelil",
+    "executable": "C:\\Users\\eelil\\.conda\\envs\\Machine_Learning_Analysis_of_Bank_Fraud\\python.exe",
+    "cpu_count": 24,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2000.0,
+        "min": 0.0,
+        "max": 2000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000.0,
+            "min": 0.0,
+            "max": 2000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1861.6386680603027,
+            "used": 108.69674682617188
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4070 SUPER",
+            "memory_total": 12878610432
+        }
+    ],
+    "memory": {
+        "total": 31.716903686523438
+    }
+}

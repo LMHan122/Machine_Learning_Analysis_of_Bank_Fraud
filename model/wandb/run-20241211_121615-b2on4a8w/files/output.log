@@ -1,0 +1,23 @@
+[34m[1mwandb[39m[22m: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 12:16:17,244 Preprocessing data
+2024-12-11 12:16:17,244 Dropping columns
+2024-12-11 12:16:17,291 Dropping Nulls
+2024-12-11 12:16:17,345 Encoding categorical variables
+Traceback (most recent call last):
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\wandb\sdk\wandb_config.py", line 165, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\wandb\sdk\wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'n_estimators'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\model\train.py", line 24, in <module>
+    n_estimators=config.n_estimators,
+                 ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\wandb\sdk\wandb_config.py", line 167, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'n_estimators'

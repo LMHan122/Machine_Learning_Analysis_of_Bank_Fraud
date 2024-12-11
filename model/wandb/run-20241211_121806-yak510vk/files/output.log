@@ -1,0 +1,39 @@
+[34m[1mwandb[39m[22m: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 12:18:08,752 Preprocessing data
+2024-12-11 12:18:08,755 Dropping columns
+2024-12-11 12:18:08,793 Dropping Nulls
+2024-12-11 12:18:08,850 Encoding categorical variables
+2024-12-11 12:18:10,524 Training XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.1, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...)
+2024-12-11 12:18:17,122 Evaluating model
+2024-12-11 12:18:17,159 Precision: 0.8988636363636363
+2024-12-11 12:18:17,174 Recall: 0.6619246861924686
+2024-12-11 12:18:17,218 F1 score: 0.7624096385542168
+2024-12-11 12:18:17,238 AUC: 0.8307490590978064
+2024-12-11 12:18:17,238 Total time to train and evaluate XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.1, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...): 6.720620632171631
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\model\train.py", line 32, in <module>
+    "precision": precision,
+                 ^^^^^^^^^
+NameError: name 'precision' is not defined
