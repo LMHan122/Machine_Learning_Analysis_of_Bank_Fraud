@@ -1,0 +1,9 @@
+wandb: Downloading large artifact final_credit_card_data:latest, 90.05MB. 1 files...
+wandb:   1 of 1 files downloaded.
+Done. 0:0:3.9
+2024-12-11 08:48:48,362 Dataset loaded successfully with shape: (1296675, 28)
+2024-12-11 08:48:48,362 Grouping customer into separate lists of those with fraud transactions and those without.
+2024-12-11 08:48:48,393 Splitting the two groups into train and test sets.
+2024-12-11 08:48:48,395 Combining the groups into a train and test set.
+2024-12-11 08:48:48,493 Saving train and test datasets.
+2024-12-11 08:48:49,310 Uploading the two sets to Weights and Biases.

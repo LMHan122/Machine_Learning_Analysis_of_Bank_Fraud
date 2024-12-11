@@ -1,0 +1,19 @@
+{"time":"2024-12-11T08:48:41.8235662-06:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-11T08:48:41.8235662-06:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\model\\wandb\\run-20241211_084841-dk6ucuah\\logs\\debug-core.log"}
+{"time":"2024-12-11T08:48:41.9313156-06:00","level":"INFO","msg":"created new stream","id":"dk6ucuah"}
+{"time":"2024-12-11T08:48:41.9313156-06:00","level":"INFO","msg":"stream: started","id":"dk6ucuah"}
+{"time":"2024-12-11T08:48:41.9320103-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:48:41.9320103-06:00","level":"INFO","msg":"sender: started","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:48:41.9320103-06:00","level":"INFO","msg":"handler: started","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:48:42.194443-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-11T08:48:42.1956008-06:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2024-12-11T08:48:49.6615626-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-11T08:48:49.6622879-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-11T08:48:50.6771105-06:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact train_data","runtime_seconds":1.1482701,"subtasks":[{"desc":"train_data.parquet","runtime_seconds":0.7306611,"progress":"1.5MB/72.9MB"}]},{"desc":"uploading artifact test_data","runtime_seconds":1.0190708,"subtasks":[{"desc":"test_data.parquet","runtime_seconds":0.5794141,"progress":"880.0KB/17.3MB"}]}],"total_operations":2}}
+{"time":"2024-12-11T08:49:51.152466-06:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading artifact train_data","runtime_seconds":61.6236256,"subtasks":[{"desc":"train_data.parquet","runtime_seconds":61.2060166,"progress":"59.5MB/72.9MB"}]}],"total_operations":1}}
+{"time":"2024-12-11T08:50:02.8774283-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-11T08:50:04.0207076-06:00","level":"INFO","msg":"stream: closing","id":"dk6ucuah"}
+{"time":"2024-12-11T08:50:04.0207076-06:00","level":"INFO","msg":"handler: closed","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:50:04.0207076-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:50:04.0207076-06:00","level":"INFO","msg":"sender: closed","stream_id":"dk6ucuah"}
+{"time":"2024-12-11T08:50:04.0207076-06:00","level":"INFO","msg":"stream: closed","id":"dk6ucuah"}

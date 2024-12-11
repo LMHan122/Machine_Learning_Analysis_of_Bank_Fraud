@@ -20,7 +20,7 @@ def fetch_train_df():
         # grabbing the dataset from WandB
         logger.info("Pulling train dataset from WandB")
         run = wandb.init(project="credit_card_fraud", job_type='training_model', save_code=True)
-        artifact = run.use_artifact('lhan122-student/credit_card_fraud/train_data:v0', type='dataset')
+        artifact = run.use_artifact('lhan122-student/credit_card_fraud/train_data:latest', type='dataset')
         artifact_dir = artifact.download()
         file_path = os.path.join(artifact_dir, "train_data.parquet")
         df = pd.read_parquet(file_path)
@@ -41,6 +41,17 @@ def preprocess_data(df):
     logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
     logger = logging.getLogger()
     logger.info('Preprocessing data')
+
+    #dropping columns that won't be used
+    logger.info('Dropping columns')
+    drop_col = ['cc_num', 'job', 'trans_num', 'date']
+    df.dropna(columns=drop_col, inplace=True)
+
+    #encoding category columns
+    logger.info('Encoding categorical variables')
+    cat_col = ['merchant', 'category']
+    df = pd.get_dummies(df, columns=cat_col, drop_first=True)
+
     X = df.drop(columns=['is_fraud'])
     y = df['is_fraud']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
