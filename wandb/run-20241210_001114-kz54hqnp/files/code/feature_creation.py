@@ -72,7 +72,7 @@ def feature_creation():
         "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
     )
 
-    cust_loc = pd.read_parquet(r'/data/cust_loc.parquet')
+    cust_loc = pd.read_parquet(r"/data/cust_loc.parquet")
 
     df = df.merge(
         cust_loc[["city", "state", "cust_lat", "cust_long"]],

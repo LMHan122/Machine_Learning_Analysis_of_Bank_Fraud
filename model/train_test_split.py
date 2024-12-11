@@ -3,15 +3,16 @@ import logging
 import pandas as pd
 import wandb
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s",
-                    filemode="a")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a"
+)
 logger = logging.getLogger()
+
 
 def train_test_split():
     run = wandb.init(project="credit_card_fraud", save_code=True)
 
-
-#FIXME: This need to be completely corrected. I got side-tracked trying to fix issues on WandB
+    # FIXME: This need to be completely corrected. I got side-tracked trying to fix issues on WandB
     try:
         # grabbing the dataset from WandB
         logger.info("Pulling cleaned dataset from WandB")
@@ -29,11 +30,6 @@ def train_test_split():
         raise
 
 
-
-
-
-
-
 # Download input artifact. This will also note that this script is using this
 # particular version of the artifact
 logger.info(f"Fetching artifact {args.input}")
@@ -46,5 +42,5 @@ trainval, test = train_test_split(
     df,
     test_size=args.test_size,
     random_state=args.random_seed,
-    stratify=df[args.stratify_by] if args.stratify_by != 'none' else None,
+    stratify=df[args.stratify_by] if args.stratify_by != "none" else None,
 )
