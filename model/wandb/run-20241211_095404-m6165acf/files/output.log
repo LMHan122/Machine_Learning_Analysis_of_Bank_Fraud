@@ -1,0 +1,62 @@
+wandb: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+wandb:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 09:54:07,562 Dataset loaded successfully with shape: (1056847, 28)
+2024-12-11 09:54:07,563 Preprocessing data
+2024-12-11 09:54:07,563 Dropping columns
+2024-12-11 09:54:07,605 Dropping Nulls
+2024-12-11 09:54:07,658 Encoding categorical variables
+2024-12-11 09:54:09,267 XGB model with gbtree, learning_rate=0.3, max_depth=5, and GPU.
+2024-12-11 09:54:09,270 Training XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=5, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...)
+C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\xgboost\core.py:158: UserWarning:
+
+[09:54:11] WARNING: C:\buildkite-agent\builds\buildkite-windows-cpu-autoscaling-group-i-0c55ff5f71b100e98-1\xgboost\xgboost-ci-windows\src\common\error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+
+C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\xgboost\core.py:158: UserWarning:
+
+[09:54:14] WARNING: C:\buildkite-agent\builds\buildkite-windows-cpu-autoscaling-group-i-0c55ff5f71b100e98-1\xgboost\xgboost-ci-windows\src\common\error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+
+C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\xgboost\core.py:158: UserWarning:
+
+[09:54:14] WARNING: C:\buildkite-agent\builds\buildkite-windows-cpu-autoscaling-group-i-0c55ff5f71b100e98-1\xgboost\xgboost-ci-windows\src\common\error_msg.cc:58: Falling back to prediction using DMatrix due to mismatched devices. This might lead to higher memory usage and slower performance. XGBoost is running on: cuda:0, while the input data is on: cpu.
+Potential solutions:
+- Use a data structure that matches the device ordinal in the booster.
+- Set the device for booster before call to inplace_predict.
+
+This warning will only be shown once.
+
+
+2024-12-11 09:54:15,594 Evaluating model
+2024-12-11 09:54:15,620 Precision: 0.9424603174603174
+2024-12-11 09:54:15,646 Recall: 0.7949790794979079
+2024-12-11 09:54:15,672 F1 score: 0.8624602814344077
+2024-12-11 09:54:15,688 AUC: 0.8973505456825628
+2024-12-11 09:54:15,689 Total time to train and evaluate XGBClassifier(base_score=None, booster='gbtree', callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='auc', feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.3, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=5, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=None,
+              num_parallel_tree=None, random_state=10, ...): 6.421217679977417
+2024-12-11 09:54:15,689 Saving model XGBClassifier to a pickle file.
+2024-12-11 09:54:15,692 Uploading XGBClassifier.pkl to WandB.

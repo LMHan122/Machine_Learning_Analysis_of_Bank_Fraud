@@ -1,0 +1,34 @@
+wandb: Downloading large artifact train_data:latest, 72.86MB. 1 files...
+wandb:   1 of 1 files downloaded.
+Done. 0:0:0.2
+2024-12-11 09:26:40,701 Dataset loaded successfully with shape: (1056847, 28)
+2024-12-11 09:26:40,701 Preprocessing data
+2024-12-11 09:26:40,702 Dropping columns
+2024-12-11 09:26:40,745 Encoding categorical variables
+2024-12-11 09:26:42,453 Logistic Regression model with class_weight='balanced'
+2024-12-11 09:26:42,456 Training LogisticRegression(class_weight='balanced', random_state=10)
+Traceback (most recent call last):
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\model\train_all_models.py", line 19, in <module>
+    train_evaluate_model(lr_model, X_train, X_test, y_train, y_test, run)
+  File "C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\model\shared_utils.py", line 77, in train_evaluate_model
+    model.fit(X_train, y_train)
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\linear_model\_logistic.py", line 1223, in fit
+    X, y = self._validate_data(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\utils\validation.py", line 1301, in check_X_y
+    X = check_array(
+        ^^^^^^^^^^^^
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\utils\validation.py", line 1064, in check_array
+    _assert_all_finite(
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\utils\validation.py", line 123, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\eelil\.conda\envs\Machine_Learning_Analysis_of_Bank_Fraud\Lib\site-packages\sklearn\utils\validation.py", line 172, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+LogisticRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values

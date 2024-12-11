@@ -1,3 +1,4 @@
+from pandas.conftest import axis_1
 import wandb
 import pandas as pd
 import logging
@@ -45,7 +46,11 @@ def preprocess_data(df):
     #dropping columns that won't be used
     logger.info('Dropping columns')
     drop_col = ['cc_num', 'job', 'trans_num', 'date']
-    df.dropna(columns=drop_col, inplace=True)
+    df.drop(drop_col, axis=1, inplace=True)
+
+    #dropping rows with null values
+    logger.info('Dropping Nulls')
+    df.dropna(subset=['cust_lat', 'cust_long', 'trans_distance_km'], inplace=True)
 
     #encoding category columns
     logger.info('Encoding categorical variables')
