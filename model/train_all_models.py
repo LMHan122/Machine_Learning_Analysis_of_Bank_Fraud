@@ -29,9 +29,21 @@ if __name__ == "__main__":
     '''
     Moving this a file of it's own since it was the only model that failed. 
     '''
-    logger.info("XGB model with gbtree. eta=0.3, max_depth=5, and GPU.")
-    xgb_model = XGBClassifier(booster="gbtree", eta=0.3, max_depth=5, device='cuda', random_state=10)
-    train_evaluate_model(xgb_model, X_train, y_train, X_test, y_test, run)
+    #logger.info("XGB model with gbtree. eta=0.3, max_depth=5, and GPU.")
+    #xgb_model = XGBClassifier(booster="gbtree", eta=0.3, max_depth=5, device='cuda', random_state=10)
+    #train_evaluate_model(xgb_model, X_train, y_train, X_test, y_test, run)
+
+    logger.info("XGB model with gbtree, learning_rate=0.3, max_depth=5, and GPU.")
+    xgb_model = XGBClassifier(
+        booster="gbtree",
+        learning_rate=0.3,
+        max_depth=5,
+        tree_method="hist",
+        device="cuda",
+        random_state=10,
+        eval_metric="auc",
+    )
+    train_evaluate_model(xgb_model, X_train, X_test, y_train, y_test, run)
 
 
     #closing wandb run
