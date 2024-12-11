@@ -5,6 +5,11 @@ import os
 
 
 def clean_data():
+    """
+    This function cleans the data by dropping redundant columns, changing data types,
+    and column names.
+    :return: None
+    """
     # starting logging
     logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s")
     logger = logging.getLogger()

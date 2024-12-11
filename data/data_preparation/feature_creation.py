@@ -16,6 +16,10 @@ logger = logging.getLogger()
 
 
 def feature_creation():
+    """
+    Creates new features for the dataset.
+    :return: None
+    """
     # starting logging
     start_time = time()
     logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s")
