@@ -1,9 +1,0 @@
-wandb: Downloading large artifact train_data:latest, 72.86MB. 1 files...
-wandb:   1 of 1 files downloaded.
-Done. 0:0:0.2
-2024-12-11 09:52:56,679 Dataset loaded successfully with shape: (1056847, 28)
-2024-12-11 09:52:56,680 Preprocessing data
-2024-12-11 09:52:56,680 Dropping columns
-2024-12-11 09:52:56,722 Dropping Nulls
-2024-12-11 09:52:56,772 Encoding categorical variables
-2024-12-11 09:52:58,406 XGB model with gbtree, learning_rate=0.3, max_depth=5, and GPU.
