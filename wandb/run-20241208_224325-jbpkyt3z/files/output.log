@@ -1,2 +1,0 @@
-2024-12-08 22:43:26,139 Pulling original dataset from WandB
-2024-12-08 22:43:26,954 Error loading dataset: [Errno 22] Invalid argument: '.\\artifacts\\credit_card_data:v0\\credit_card_transactions.csv'

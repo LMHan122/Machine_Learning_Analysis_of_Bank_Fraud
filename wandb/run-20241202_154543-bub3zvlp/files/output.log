@@ -1,7 +1,0 @@
-2024-12-02 15:45:45,441 Downloading data from Kaggle
-Downloading from https://www.kaggle.com/api/v1/datasets/download/priyamchoksi/credit-card-transactions-dataset?dataset_version_number=1...
-100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 145M/145M [00:04<00:00, 32.9MB/s]
-Extracting files...
-2024-12-02 15:45:52,193 Moving data to C:\Users\eelil\OneDrive\Desktop\Capstone\Machine_Learning_Analysis_of_Bank_Fraud\data locally
-2024-12-02 15:45:52,194 Uploading data to Weights & Biases
-2024-12-02 15:45:52,821 Data upload to Weights & Biases complete.
