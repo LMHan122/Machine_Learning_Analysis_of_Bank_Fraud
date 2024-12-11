@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/map" />
     </content>
     <orderEntry type="jdk" jdkName="Machine_Learning_Analysis_of_Bank_Fraud" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
