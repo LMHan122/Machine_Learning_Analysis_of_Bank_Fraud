@@ -23,8 +23,7 @@ if __name__ == "__main__":
         booster="gbtree",
         learning_rate=0.3,
         max_depth=5,
-        tree_method="hist",
-        device="cuda",
+        tree_method="gpu_hist",
         random_state=10,
         eval_metric="auc",
     )
