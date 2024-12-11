@@ -23,11 +23,11 @@ def split_data():
         logger.info("Pulling final dataset from WandB")
         run = wandb.init(project="credit_card_fraud", save_code=True)
         artifact = run.use_artifact(
-            "lhan122-student/credit_card_fraud/final_credit_card_data:latest",
+            "lhan122-student/credit_card_fraud/final_credit_card_data:v0",
             type="dataset",
         )
         artifact_dir = artifact.download()
-        file_path = os.path.join(artifact_dir, "final_credit_card_data.parquet")
+        file_path = os.path.join(artifact_dir, "final_credit_card_fraud.parquet")
         df = pd.read_parquet(file_path)
         logger.info(f"Dataset loaded successfully with shape: {df.shape}")
     except Exception as e:
