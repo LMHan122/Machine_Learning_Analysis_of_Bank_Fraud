@@ -76,11 +76,7 @@ def feature_creation():
         "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
     )
 
-
-    cust_artifact = run.use_artifact('lhan122-student/credit_card_fraud/cust_loc_data:latest', type='dataset')
-    cust_artifact_dir = cust_artifact.download()
-    file_path = os.path.join(cust_artifact_dir, "cust_loc.parquet")
-    cust_loc = pd.read_parquet(file_path)
+    cust_loc = pd.read_parquet(r"data/data_preparation/cust_loc.parquet")
 
     df = df.merge(
         cust_loc[["city", "state", "cust_lat", "cust_long"]],
@@ -209,14 +205,14 @@ def feature_creation():
     logger.info("Creating age_at_trans column.")
     df["age_at_trans"] = (df["trans_dt"] - df["dob"]).dt.days / 365.25
 
-    logger.info("Dropping 'trans_dt' and 'dob' column.")
-    df.drop(["trans_dt", "dob"], axis=1, inplace=True)
-
     logger.info("Feature Creation Done")
 
     logger.info("Uploading final dataset to WandB.")
     final_file = "final_credit_card_fraud.parquet"
     df.to_parquet(final_file, index=False)
+
+    logger.info("Dropping 'trans_dt' and 'dob' column.")
+    df.drop(["trans_dt", "dob"], axis=1, inplace=True)
 
     artifact = wandb.Artifact(
         name="final_credit_card_data",

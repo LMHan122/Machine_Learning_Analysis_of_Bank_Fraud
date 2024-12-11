@@ -1,0 +1,27 @@
+2024-12-11 08:43:16,220 Pulling cleaned dataset from WandB
+wandb: Downloading large artifact cleaned_credit_card_data:latest, 85.55MB. 1 files...
+wandb:   1 of 1 files downloaded.
+Done. 0:0:0.3
+2024-12-11 08:43:18,547 Dataset loaded successfully with shape: (1296675, 15)
+2024-12-11 08:43:18,547 Creating new column 'trans_type'.
+2024-12-11 08:43:18,563 New column 'trans_type' added.
+2024-12-11 08:43:18,563 Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns.
+wandb:   1 of 1 files downloaded.
+2024-12-11 08:43:19,890 Dropping 'city' and 'state' column.
+2024-12-11 08:43:19,929 Creating new columns 'trans_distance_km' and 'merch_distance_km'.
+Pandas Apply: 100%|██████████| 1296675/1296675 [00:09<00:00, 142544.78it/s]
+Pandas Apply: 100%|██████████| 1296675/1296675 [00:09<00:00, 143123.30it/s]
+2024-12-11 08:43:38,498 Creating new time and date columns.
+2024-12-11 08:43:38,777 New datetime columns added.
+2024-12-11 08:43:38,778 Creating new rolling columns.
+2024-12-11 08:43:39,082 Creating rolling trans by last hour column.
+2024-12-11 08:43:39,841 Creating rolling trans by last day column.
+2024-12-11 08:43:40,644 Creating rolling trans amount by last hour column.
+2024-12-11 08:43:41,443 Creating rolling trans amount by last day column.
+2024-12-11 08:43:42,252 Creating map for job titles.
+2024-12-11 08:43:42,359 Running RapidFuzz.
+2024-12-11 08:43:42,406 Applying Job Titles to job column.
+2024-12-11 08:43:42,445 Creating age_at_trans column.
+2024-12-11 08:43:42,466 Feature Creation Done
+2024-12-11 08:43:42,466 Uploading final dataset to WandB.
+2024-12-11 08:43:43,380 Dropping 'trans_dt' and 'dob' column.

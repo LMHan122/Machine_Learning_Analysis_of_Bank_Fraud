@@ -209,14 +209,14 @@ def feature_creation():
     logger.info("Creating age_at_trans column.")
     df["age_at_trans"] = (df["trans_dt"] - df["dob"]).dt.days / 365.25
 
-    logger.info("Dropping 'trans_dt' and 'dob' column.")
-    df.drop(["trans_dt", "dob"], axis=1, inplace=True)
-
     logger.info("Feature Creation Done")
 
     logger.info("Uploading final dataset to WandB.")
     final_file = "final_credit_card_fraud.parquet"
     df.to_parquet(final_file, index=False)
+
+    logger.info("Dropping 'trans_dt' and 'dob' column.")
+    df.drop(["trans_dt", "dob"], axis=1, inplace=True)
 
     artifact = wandb.Artifact(
         name="final_credit_card_data",
