@@ -19,7 +19,7 @@ def fetch_train_df():
     try:
         # grabbing the dataset from WandB
         logger.info("Pulling train dataset from WandB")
-        run = wandb.init(project="credit_card_fraud", job_type='training_model', job save_code=True)
+        run = wandb.init(project="credit_card_fraud", job_type='training_model', save_code=True)
         artifact = run.use_artifact('lhan122-student/credit_card_fraud/train_data:v0', type='dataset')
         artifact_dir = artifact.download()
         file_path = os.path.join(artifact_dir, "train_data.parquet")
@@ -38,6 +38,7 @@ def preprocess_data(df):
     :param df: dataframe pulled from wandb
     :return: train/test split
     '''
+    logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
     logger = logging.getLogger()
     logger.info('Preprocessing data')
     X = df.drop(columns=['is_fraud'])
@@ -57,8 +58,9 @@ def train_evaluate_model(model, X_train, X_test, y_train, y_test, run):
     :param run: wandb run
     :return:
     '''
+    logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
+    logger = logging.getLogger()
     start = time()
-    logger.getLogger()
     logger.info(f'Training {model}')
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)

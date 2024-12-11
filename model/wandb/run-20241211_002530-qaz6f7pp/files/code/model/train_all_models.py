@@ -3,8 +3,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
-logger = logging.getLogger()
 
 if __name__ == "__main__":
     #getting training data

@@ -85,8 +85,8 @@ def feature_creation():
     )
 
     # dropping city column
-    logger.info("Dropping 'city' column.")
-    df.drop(["city"], axis=1, inplace=True)
+    logger.info("Dropping 'city' and 'state' column.")
+    df.drop(["city", "state"], axis=1, inplace=True)
 
     logger.info("Creating new columns 'trans_distance_km' and 'merch_distance_km'.")
     # creating column for distance between customer's city and the transaction location
@@ -110,7 +110,7 @@ def feature_creation():
 
     # creating new timedate columns
     # date related columns
-    logger.info("Creating new timedate columns.")
+    logger.info("Creating new time and date columns.")
     df["date"] = df["trans_dt"].dt.date
     df["year"] = df["trans_dt"].dt.year
     df["month"] = df["trans_dt"].dt.month
@@ -120,7 +120,6 @@ def feature_creation():
     df["day_of_week"] = df["trans_dt"].dt.dayofweek
 
     # time related columns
-    df["time"] = df["trans_dt"].dt.time
     df["hour"] = df["trans_dt"].dt.hour
     logger.info("New datetime columns added.")
 
@@ -211,6 +210,9 @@ def feature_creation():
     logger.info("Uploading final dataset to WandB.")
     final_file = "final_credit_card_fraud.parquet"
     df.to_parquet(final_file, index=False)
+
+    logger.info("Dropping 'trans_dt' and 'dob' column.")
+    df.drop(["trans_dt", "dob"], axis=1, inplace=True)
 
     artifact = wandb.Artifact(
         name="final_credit_card_data",
