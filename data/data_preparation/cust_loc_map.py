@@ -24,6 +24,7 @@ def get_lat_long(city, state):
     try:
         location = geolocator.geocode(f"{city}, {state}")
         if location:
+            sleep(1)
             return location.latitude, location.longitude
 
         else:
@@ -31,8 +32,6 @@ def get_lat_long(city, state):
     except Exception as e:
         logger.error(f"Error fetching location for {city}, {state}: {e}")
         return None, None
-    finally:
-        sleep(1)
 
 
 def cust_loc_map():
@@ -68,7 +67,7 @@ def cust_loc_map():
 
     # uploading it to WandB as well for record keeping
     logger.info("Uploading file to WandB.")
-    cust_loc_file = "data/data_preparation/cust_loc.parquet"
+    cust_loc_file = "cust_loc.parquet"
     cust_loc.to_parquet(cust_loc_file, index=False)
 
     artifact = wandb.Artifact(
@@ -79,7 +78,8 @@ def cust_loc_map():
     artifact.add_file(cust_loc_file)
     run.log_artifact(artifact)
     run.finish()
-
+    #removing local copy
+    os.remove(cust_loc_file)
 
 if __name__ == "__main__":
     cust_loc_map()

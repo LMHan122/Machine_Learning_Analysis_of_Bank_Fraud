@@ -1,0 +1,17 @@
+{"time":"2024-12-11T07:35:32.5896978-06:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-11T07:35:32.5896978-06:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\eelil\\OneDrive\\Desktop\\Capstone\\Machine_Learning_Analysis_of_Bank_Fraud\\data\\data_preparation\\wandb\\run-20241211_073532-hrzybw2q\\logs\\debug-core.log"}
+{"time":"2024-12-11T07:35:32.7018753-06:00","level":"INFO","msg":"created new stream","id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:32.7018753-06:00","level":"INFO","msg":"stream: started","id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:32.7018753-06:00","level":"INFO","msg":"writer: Do: started","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:32.7018753-06:00","level":"INFO","msg":"handler: started","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:32.7018753-06:00","level":"INFO","msg":"sender: started","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:32.8976038-06:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-11T07:35:32.8987397-06:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2024-12-11T07:35:35.295008-06:00","level":"INFO","msg":"stream: closing","id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:35.295008-06:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-11T07:35:35.2955722-06:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-11T07:35:35.6415599-06:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-11T07:35:35.7720156-06:00","level":"INFO","msg":"handler: closed","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:35.7720156-06:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:35.7720156-06:00","level":"INFO","msg":"sender: closed","stream_id":"hrzybw2q"}
+{"time":"2024-12-11T07:35:35.7726067-06:00","level":"INFO","msg":"stream: closed","id":"hrzybw2q"}
