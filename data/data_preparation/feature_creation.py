@@ -178,10 +178,10 @@ def feature_creation():
 
     # using rapidfuzz, compairing job titles together and creating a list
     # for values that have a similarity score higher then 95
-    '''
+    """
     This column was not used for modeling, leading to this section of code being
     commented out. Might be used in future versions.
-    '''
+    """
     # logger.info("Running RapidFuzz.")
     # for i, job in enumerate(jobs):
     #     matches = process.extract(

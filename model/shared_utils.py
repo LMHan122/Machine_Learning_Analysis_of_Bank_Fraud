@@ -127,8 +127,5 @@ def train_evaluate_model(model, X_train, X_test, y_train, y_test, run):
     return precision, recall, f1, auc
 
 
-
-
-
 if __name__ == "__main__":
     pass

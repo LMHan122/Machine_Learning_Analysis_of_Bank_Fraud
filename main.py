@@ -15,49 +15,41 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
+
 def xgboost_pipeline():
-    '''
+    """
     This function downloads data, prepares it, and then tests
     a pre-trained XGBoost model.
     :return: Tested model is uploaded to wandb.
-    '''
+    """
     # getting data from Kaggle
     data_download()
 
-    #data exploration occurs in data/data_understanding/Data_Understanding.ipynb
+    # data exploration occurs in data/data_understanding/Data_Understanding.ipynb
 
-    #cleaning data
+    # cleaning data
     clean_data()
 
-    #creating customer location mapping if not already done
-    #cust_loc_map()     since this step has already been completed
+    # creating customer location mapping if not already done
+    # cust_loc_map()     since this step has already been completed
 
-    #creating new features
+    # creating new features
     feature_creation()
 
-    #creating the train and test datasets
+    # creating the train and test datasets
     split_data()
 
-    #use model/train_all_models.py to test 3 models
-    #not included in pipeline since it requires manual review
+    # use model/train_all_models.py to test 3 models
+    # not included in pipeline since it requires manual review
 
-    #use model/train_parameter_tuning.py to run a sweep
-    #for hyperparameter tuning on the chosen model
-    #not include in pipeline since it requires manual review
+    # use model/train_parameter_tuning.py to run a sweep
+    # for hyperparameter tuning on the chosen model
+    # not include in pipeline since it requires manual review
 
-    #tests xgboost model
+    # tests xgboost model
     test_xgboost()
 
 
 if __name__ == "__main__":
-    logger.info('Testing XGBoost from pipeline')
+    logger.info("Testing XGBoost from pipeline")
     xgboost_pipeline()
-
-
-
-
-
-
-
-
-
