@@ -43,7 +43,7 @@ def preprocess_test_df(run):
 if __name__ == '__main__':
     #loading pickle file
     logger.info('Pulling model pickle file')
-    run = wandb.init()
+    run = wandb.init(project='credit_card_fraud')
     artifact = run.use_artifact('lhan122-student/credit_card_fraud/XGBClassifier_artifact:v7', type='model')
     artifact_dir = artifact.download()
 
