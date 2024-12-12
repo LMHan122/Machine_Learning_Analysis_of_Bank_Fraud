@@ -1,24 +1,18 @@
+import pandas as pd
 from xgboost import XGBClassifier
 import os
-from shared_utils import *
 import logging
 import pickle
+import wandb
+from sklearn.model_selection import train_test_split
 
-#creating model with parameters from tuning
-xgb_model = XGBClassifier(
-    booster='gbtree',
-    learning_rate=0.3,
-    max_depth=7,
-    tree_method='hist',
-    device='cuda'
-    random_state=10
-    eval_metric='auc',
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)-20s %(message)s", filemode="a")
+logger = logging.getLogger()
 
 def preprocess_test_df(run):
     '''
     Retrieving the test dataframe from WandB and preprocessing the test dataframe.
-    :return:
+    :return:X_test, y_test
     '''
     test_df = run.use_artifact('lhan122-student/credit_card_fraud/test_data:v1', type='dataset')
     test_dir = test_df.download()
@@ -41,32 +35,35 @@ def preprocess_test_df(run):
     cat_col = ["merchant", "category"]
     df = pd.get_dummies(df, columns=cat_col, drop_first=True)
 
-    X_test = df.drop('is_fraud')
-    y_test = df['is_fraud']
+    X = df.drop(columns=["is_fraud"])
+    y = df["is_fraud"]
 
-    return X_test, y_test
+    return X, y
 
 
 if __name__ == '__main__':
-    #setting up logger
-    logging.basicConfig(format="%(asctime)-20s %(message)s", level=logging.INFO, filemode='a')
-    logger = logging.getLogger()
-
-    #pulling train dataset and starting a wandb run
-    df, run = fetch_train_df()
-
-    #preprocessing data
-    X_train, X_test, y_train, y_test = preprocess_data(df)
+    #loading pickle file
+    logger.info('Pulling model pickle file')
+    run = wandb.init()
+    artifact = run.use_artifact('lhan122-student/credit_card_fraud/XGBClassifier_artifact:prod', type='model')
+    artifact_dir = artifact.download()
 
     #training and evaluating model
-    xgb_model = xgb_model
-    train_evaluate_model(xgb_model, X_train, X_test, y_train, y_test, run)
-
-
+    xgb_model = pd.read_pickle(os.path.join(artifact_dir, 'XBGClassifier.pkl'))
 
     #preprocessing the test data
+    X, y = preprocess_test_df(run)
 
-    X_test, y_test = preprocess_test_df(run)
+    #making predictions and evaluating
+    logger.info('Making predictions')
+    y_pred = xgb_model.predict(X)
+    logger.info('Viewing model performance')
+    print(classification_report(y, y_pred))
+
+    run.finish()
+
+
+
 
 
 
