@@ -78,8 +78,9 @@ def cust_loc_map():
     artifact.add_file(cust_loc_file)
     run.log_artifact(artifact)
     run.finish()
-    #removing local copy
+    # removing local copy
     os.remove(cust_loc_file)
+
 
 if __name__ == "__main__":
     cust_loc_map()

@@ -76,8 +76,9 @@ def feature_creation():
         "Loading pre-mapped lat and long coordinates for customer's city and state, and using it to create 'cust_lat' and 'cust_long' columns."
     )
 
-
-    cust_artifact = run.use_artifact('lhan122-student/credit_card_fraud/cust_loc_data:latest', type='dataset')
+    cust_artifact = run.use_artifact(
+        "lhan122-student/credit_card_fraud/cust_loc_data:latest", type="dataset"
+    )
     cust_artifact_dir = cust_artifact.download()
     file_path = os.path.join(cust_artifact_dir, "cust_loc.parquet")
     cust_loc = pd.read_parquet(file_path)

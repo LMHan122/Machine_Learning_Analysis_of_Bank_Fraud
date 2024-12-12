@@ -1,4 +1,4 @@
-program: train.py
+program: train_parameter_tuning.py
 name: sweep
 method: grid
 metric:
