@@ -178,33 +178,37 @@ def feature_creation():
 
     # using rapidfuzz, compairing job titles together and creating a list
     # for values that have a similarity score higher then 95
-    logger.info("Running RapidFuzz.")
-    for i, job in enumerate(jobs):
-        matches = process.extract(
-            job, jobs[i + 1 :], scorer=fuzz.token_sort_ratio, processor=None, limit=5
-        )
-
-        # if the similarity score is 95 or higher, job titles are added to this list
-        for match in matches:
-            if match[1] >= 95:
-                similar_jobs.add((job, match[0]))
-
-    # creating empty dict for map
-    job_map = {}
-
-    # picking the shortest job title as the job title to use
-    for job1, job2 in similar_jobs:
-        j1 = job_map.get(job1, job1)
-        j2 = job_map.get(job2, job2)
-
-        # picking the shortest job title
-        short_job = min(j1, j2)
-        job_map[job1] = short_job
-        job_map[job2] = short_job
-
-    logger.info("Applying Job Titles to job column.")
-    # applying the job titles map
-    df["job"] = df["job"].map(job_map)
+    '''
+    This column was not used for modeling, leading to this section of code being
+    commented out. Might be used in future versions.
+    '''
+    # logger.info("Running RapidFuzz.")
+    # for i, job in enumerate(jobs):
+    #     matches = process.extract(
+    #         job, jobs[i + 1 :], scorer=fuzz.token_sort_ratio, processor=None, limit=5
+    #     )
+    #
+    #     # if the similarity score is 95 or higher, job titles are added to this list
+    #     for match in matches:
+    #         if match[1] >= 95:
+    #             similar_jobs.add((job, match[0]))
+    #
+    # # creating empty dict for map
+    # job_map = {}
+    #
+    # # picking the shortest job title as the job title to use
+    # for job1, job2 in similar_jobs:
+    #     j1 = job_map.get(job1, job1)
+    #     j2 = job_map.get(job2, job2)
+    #
+    #     # picking the shortest job title
+    #     short_job = min(j1, j2)
+    #     job_map[job1] = short_job
+    #     job_map[job2] = short_job
+    #
+    # logger.info("Applying Job Titles to job column.")
+    # # applying the job titles map
+    # df["job"] = df["job"].map(job_map)
 
     ###creating 'age_at_trans' column
     logger.info("Creating age_at_trans column.")

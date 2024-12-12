@@ -40,7 +40,11 @@ def preprocess_test_df(run):
     return X, y
 
 
-if __name__ == '__main__':
+def test_xgboost():
+    '''
+    This tests a trained XGBoost model on a test dataset.
+    :return: File is uploaded to wandb
+    '''
     #loading pickle file
     logger.info('Pulling model pickle file')
     run = wandb.init(project='credit_card_fraud')
@@ -99,6 +103,11 @@ if __name__ == '__main__':
     run.finish()
 
     logger.info('Done')
+
+
+if __name__ == '__main__':
+    test_xgboost()
+
 
 
 
