@@ -159,29 +159,29 @@ def feature_creation():
     )
 
     logger.info("Creating rolling trans amount by last day column.")
-    df["amt_by_last_hr"] = (
+    df["amt_by_last_day"] = (
         df.groupby("cc_num")
         .rolling("1D", on="trans_dt")["amt"]
         .sum()
         .reset_index(drop=True)
     )
-
-    # creating list of jobs and count of each job
-    logger.info("Creating map for job titles.")
-    df["job"] = df["job"].str.lower().str.strip()
-
-    # creating list fo all unique job titles
-    jobs = df["job"].drop_duplicates()
-
-    # creating an empty set for rapidfuzz
-    similar_jobs = set()
-
-    # using rapidfuzz, compairing job titles together and creating a list
-    # for values that have a similarity score higher then 95
     """
     This column was not used for modeling, leading to this section of code being
     commented out. Might be used in future versions.
     """
+    # creating list of jobs and count of each job
+    #logger.info("Creating map for job titles.")
+    #df["job"] = df["job"].str.lower().str.strip()
+
+    # creating list fo all unique job titles
+    #jobs = df["job"].drop_duplicates()
+
+    # creating an empty set for rapidfuzz
+    #similar_jobs = set()
+
+    # using rapidfuzz, compairing job titles together and creating a list
+    # for values that have a similarity score higher then 95
+
     # logger.info("Running RapidFuzz.")
     # for i, job in enumerate(jobs):
     #     matches = process.extract(
