@@ -1,0 +1,8 @@
+main:
+  # Set to null if running in production
+  components_repository: "https://github.com/LMHan122/Machine_Learning_Analysis_of_Bank_Fraud"
+  project_name: # need to create a new project name or add the one currently on wandb
+etl:
+  sample: # need to add file name
+
+
