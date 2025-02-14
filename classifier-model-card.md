@@ -25,10 +25,46 @@ https://www.kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset
 
 https://huggingface.co/datasets/pointe77/credit-card-transaction
 
-The dataset includes 24 columns made up of:
-•	Transaction Information: Transaction date and time, merchant details, geographical coordinates of both the transaction and of the merchant, population of the city the transaction occurred in, transaction number, and a Unix timestamp of the transaction.
-•	Personal Identifiable Information: Credit card number, first and last name, gender, complete address, job, and date of birth.
-•	Fraud label: This label allows for a supervised learning model to be used. 
+The dataset is almost 1.3 million records, covers 18 months, and includes 24 columns made up of:  
+- **Transaction Information:** Transaction date and time, merchant details, geographical coordinates of both the transaction and of the merchant, population of the city the transaction occurred in, transaction number, and a Unix timestamp of the transaction.
+- **Personal Identifiable Information:** Credit card number, first and last name, gender, complete address, job, and date of birth. 
+- **Fraud label:** This label allows for a supervised learning model to be used. 
+
+### Data Preparation  
+
+#### Initial Exploration  
+The data was first explored in a Jupyter Notebook using Python, primarily utilizing the **Pandas**, **Matplotlib**, and **Geopandas** libraries. The initial analysis included:  
+
+- Verifying overall dataset statistics, such as the number of null values and total transaction records.  
+- Examining each column to determine necessary preprocessing steps.  
+- Compiling a list of data cleaning and transformation requirements.  
+
+#### Data Cleaning (`clean_data.py`)  
+The following modifications were made during the first stage of data preparation:  
+
+- **Column Renaming:**  
+  - `'trans_data_trans_time'` → `'trans_dt'` (for brevity).  
+
+- **Column Removal:**  
+  - `'first'`, `'last'`, `'gender'` (dropped for bias mitigation).  
+  - An unnamed index column (dropped for redundancy).  
+  - `'unix_time'`, `'street'`, `'zip'`, and `'merch_zipcode'` (dropped as they were redundant; location and datetime processing used latitude, longitude, and transaction datetime instead).  
+  - `'city_pop'` (dropped after determining the data was unreliable).  
+
+- **Column Type Optimization:**  
+  - `'category'`, `'merchant'`, `'job'`, `'is_fraud'`, `'state'`, and `'city'` were converted to categorical data types to reduce file size and improve processing speed.  
+
+#### Feature Engineering (`feature_creation.py`)  
+The following new features were created to enhance model performance:  
+
+- **Time-Based Features:**  
+  - Extracted an `hour` column from transaction timestamps.  
+  - Created rolling window features to track:  
+    - The number of transactions in the last **hour** (`trans_by_last_hr`) and **day** (`trans_by_last_day`) for each account.  
+    - The total transaction amount (`amt_by_last_hr`, `amt_by_last_day`) over these time periods.  
+  - Created new datetime-related columns: `date`, `year`, `month`, `day`, `week`, and `quarter`.  
+  - Dropped `'trans_dt'` after extracting useful datetime components, as the original format was not model-compatible.  
+
 
 
 
