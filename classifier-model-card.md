@@ -1,9 +1,12 @@
+> **🚧 Work in Progress:** This model card is currently being developed and may be updated as improvements are made to the model and documentation.
+
+
 # Model Card: XGBClassifier_tested
 
 ## Model Overview
 **Developed by:** Leslie Hanson  
 **Model Date:** 2025-02-13  
-**Model Version:** 1.0.3  
+**Model Version:** 1.0.2  
 **Model Type:** Classification  
 **License:** GNU GENERAL PUBLIC LICENSE  
 
