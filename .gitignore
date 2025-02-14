@@ -4,5 +4,7 @@
 /map
 /wandb
 wandb/
+artifacts/
+
 
 
