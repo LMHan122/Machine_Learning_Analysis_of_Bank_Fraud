@@ -170,14 +170,14 @@ def feature_creation():
     commented out. Might be used in future versions.
     """
     # creating list of jobs and count of each job
-    #logger.info("Creating map for job titles.")
-    #df["job"] = df["job"].str.lower().str.strip()
+    # logger.info("Creating map for job titles.")
+    # df["job"] = df["job"].str.lower().str.strip()
 
     # creating list fo all unique job titles
-    #jobs = df["job"].drop_duplicates()
+    # jobs = df["job"].drop_duplicates()
 
     # creating an empty set for rapidfuzz
-    #similar_jobs = set()
+    # similar_jobs = set()
 
     # using rapidfuzz, compairing job titles together and creating a list
     # for values that have a similarity score higher then 95

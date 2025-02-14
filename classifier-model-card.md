@@ -1,23 +1,37 @@
 # Model Card: XGBClassifier_tested
 
 ## Model Overview
-**Developed by:** Leslie Hanson
-**Model Date:** 2025-02-13
-**Model Version:** 1.0.2
-**Model Type:** Classification
-**License:** [License type]
+**Developed by:** Leslie Hanson  
+**Model Date:** 2025-02-13  
+**Model Version:** 1.0.3  
+**Model Type:** Classification  
+**License:** GNU GENERAL PUBLIC LICENSE  
 
 ## Intended Use
 ### Primary Intended Uses
-- Describe the primary intended use cases of the model
-- Include specific domains or applications where the model is meant to be used
+This machine-learning model was developed as part of an academic project to analyze and detect fraudulent credit card transactions. It serves as a proof of concept to demonstrate the application of supervised learning techniques in fraud detection rather than a production-ready solution. The model is intended for educational and exploratory purposes, showcasing feature engineering, model evaluation, and performance analysis in a controlled dataset.
 
 ### Out-of-Scope Uses
-- List uses that the model is not intended for
-- Highlight potentially harmful applications that should be avoided
+- **Real-World Fraud Detection:** This model is a proof of concept and is not designed for deployment in a real banking system. It lacks the robustness, security measures, and regulatory compliance needed for production use.
+- **Decision-Making on Financial Transactions:** The model should not be used to make actual fraud-related decisions, as it was trained on a limited dataset and may not generalize well to real-world fraud patterns.
+- **Legal or Regulatory Compliance:** The model does not meet the standards required for financial fraud detection under industry regulations (e.g., PCI DSS, GDPR, or banking compliance laws).
+- **High-Stakes Environments:** The model has not been stress-tested against adversarial attacks or sophisticated fraud techniques used in real financial systems.
 
 ## Training Data
 ### Datasets Used
+The original dataset used for this project is Credit Card Transactions Dataset available on Kaggle and Hugging Face at:
+
+https://www.kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset
+
+https://huggingface.co/datasets/pointe77/credit-card-transaction
+
+The dataset includes 24 columns made up of:
+•	Transaction Information: Transaction date and time, merchant details, geographical coordinates of both the transaction and of the merchant, population of the city the transaction occurred in, transaction number, and a Unix timestamp of the transaction.
+•	Personal Identifiable Information: Credit card number, first and last name, gender, complete address, job, and date of birth.
+•	Fraud label: This label allows for a supervised learning model to be used. 
+
+
+
 - List and describe the main datasets used for training
 - Include versions and dates of the datasets
 - Note any data preprocessing or cleaning steps

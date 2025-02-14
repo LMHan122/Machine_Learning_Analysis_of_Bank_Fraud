@@ -3,6 +3,7 @@
 *.pkl
 /map
 wandb/
+*/wandb/
 artifacts/
 
 
