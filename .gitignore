@@ -2,7 +2,6 @@
 *.parquet
 *.pkl
 /map
-/wandb
 wandb/
 artifacts/
 
