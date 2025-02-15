@@ -31,7 +31,7 @@ In the `data/get_data.py` script:
 - Dataset was programmatically downloaded using the Kaggle API.
 - Uploaded to Weights & Biases as an artifact.  
   -  **Artifact:** `credit_card_data`
-  - **Version:** `0`
+  -  **Version:** `0`
 
 ### Data Preparation  
 
