@@ -43,7 +43,7 @@ The data was first explored in a Jupyter Notebook using Python, primarily utiliz
 
 <b> Some key highlights include: </b>
 
-![Fraud Vs. Not-Fraud Image](data/data_understanding/plot_images/transaction_counts_fraud.png)
+![Fraud Vs. Not-Fraud Image](data/data_understanding/plot_images/transaction_counts_fraud.png)  
 The number of fraudulent transactions is 7,506, while the number of non-fraudulent transactions is 1,289,169.
 
 
@@ -94,7 +94,7 @@ The following new features were created to enhance model performance:
 - Ensured all transactions from the same customer remained in either the training or test set to prevent data leakage.
 - Saved the train/test datasets as Parquet files and uploaded them to W&B for versioning and reproducibility.
 
-- Describe key characteristics of the training data
+
 - Note any potential biases in the data
 - Include relevant demographics or distributions
 
