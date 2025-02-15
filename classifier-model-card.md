@@ -41,6 +41,12 @@ The data was first explored in a Jupyter Notebook using Python, primarily utiliz
 - Examining each column to determine necessary preprocessing steps.  
 - Compiling a list of data cleaning and transformation requirements.  
 
+<b> Some key highlights include: </b>
+
+![Fraud Vs. Not-Fraud Image](data/data_understanding/plot_images/transaction_counts_fraud.png)
+The number of fraudulent transactions is 7,506, while the number of non-fraudulent transactions is 1,289,169.
+
+
 #### <u>Data Cleaning (`clean_data.py`)</u>  
 The following modifications were made during the first stage of data preparation:  
 
@@ -72,9 +78,22 @@ The following new features were created to enhance model performance:
 
 - List and describe the main datasets used for training
 - Include versions and dates of the datasets
-- Note any data preprocessing or cleaning steps
 
-### Training Data Characteristics
+
+### Data Preprocessing and Splitting 
+
+#### Preprocessing (`shared_utils.py`)
+- Logged preprocessing steps for traceability.
+- Dropped unnecessary columns: `cc_num`, `job`, `trans_num`, and `date`.
+- Removed rows with null values in critical location-based fields (`cust_lat`, `cust_long`, `trans_distance_km`).
+- Encoded categorical variables (`merchant` and `category`) using one-hot encoding.
+
+#### Train/Test Split Strategy (`train_all_models.py`)
+- Downloaded the final dataset from Weights & Biases (W&B).
+- Split customers into fraud and non-fraud groups before splitting them into train (80%) and test (20%) sets.
+- Ensured all transactions from the same customer remained in either the training or test set to prevent data leakage.
+- Saved the train/test datasets as Parquet files and uploaded them to W&B for versioning and reproducibility.
+
 - Describe key characteristics of the training data
 - Note any potential biases in the data
 - Include relevant demographics or distributions
