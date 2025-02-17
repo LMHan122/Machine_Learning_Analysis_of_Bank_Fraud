@@ -1,14 +1,12 @@
-> **🚧 Work in Progress:** This model card is currently being developed and may be updated as improvements are made to the model and documentation.
-
-
 # Model Card: XGBClassifier_tested
 
 ## Model Overview
 **Developed by:** Leslie Hanson  
-**Model Date:** 2025-02-13  
+**Model Date:** December 2024
 **Model Version:** 1.0.2  
 **Model Type:** Classification  
 **License:** GNU GENERAL PUBLIC LICENSE  
+**Model Architecture:** Gradient Boosted Decision Trees
 
 ## Intended Use
 ### Primary Intended Uses
@@ -36,15 +34,14 @@ In the `data/get_data.py` script:
 ### Data Preparation  
 
 #### <u>Initial Exploration (`data/data_understanding/Data_Understanding.ipynb`)</u>  
-The data was first explored in a Jupyter Notebook using Python, primarily utilizing the **Pandas**, **Matplotlib**, and **Geopandas** libraries. The initial analysis included:  
+The data was first explored in a Jupyter Notebook using Python, primarily utilizing the **Pandas**, **Matplotlib**, and **Geopandas** libraries. 
+The number of fraudulent transactions is 7,506, while the number of non-fraudulent transactions is 1,289,169. The initial analysis included:  
 - Verifying overall dataset statistics, such as the number of null values and total transaction records.  
 - Examining each column to determine necessary preprocessing steps.  
 - Compiling a list of data cleaning and transformation requirements.  
 
-<b> Some key highlights include: </b>
-
 ![Fraud Vs. Not-Fraud Image](data/data_understanding/plot_images/transaction_counts_fraud.png)  
-The number of fraudulent transactions is 7,506, while the number of non-fraudulent transactions is 1,289,169.
+
 
 
 <!-- Add more graphs -->
@@ -85,7 +82,6 @@ The following new features were created to enhance model performance:
 ### Data Preprocessing and Splitting 
 
 #### Preprocessing (`shared_utils.py`)
-- Logged preprocessing steps for traceability.
 - Dropped unnecessary columns: `cc_num`, `job`, `trans_num`, and `date`.
 - Removed rows with null values in critical location-based fields (`cust_lat`, `cust_long`, `trans_distance_km`).
 - Encoded categorical variables (`merchant` and `category`) using one-hot encoding.
@@ -96,7 +92,86 @@ The following new features were created to enhance model performance:
 - Ensured all transactions from the same customer remained in either the training or test set to prevent data leakage.
 - Saved the train/test datasets as Parquet files and uploaded them to W&B for versioning and reproducibility.
 
+## Performance Metrics
+### Final Test Results
+- Precision: 0.97
+- Recall: 0.87
+- F1-score: 0.918
+- Accuracy: 0.998
 
+### Top Feature Importance
+1. category_grocery_pos (0.404)
+2. category_gas_transport (0.149)
+3. amt (0.045)
+4. hour (0.043)
+5. category_travel (0.026)
+6. category_grocery_net (0.020)
+7. category_home (0.017)
+8. trans_type (0.014)
+9. merchant_fraud_Gottlieb, Considine and Schultz (0.012)
+10. category_misc_net (0.011)
+
+## Model Parameters
+- Learning Rate: 0.3
+- Max Depth: 7
+- Booster: gbtree
+- Device: cuda
+- Eval Metric: AUC
+- Tree Method: hist
+
+## Limitations and Biases
+- Model was trained on artificially generated/anonymized merchant location data
+- Potential sampling biases in the public dataset
+- May not generalize to real private transaction data
+- Cannot process real-time transactions
+- Some hardcoded values in pipeline limit reusability
+- Relationship between features and outcomes can be difficult to interpret
+
+## Ethical Considerations
+- Demographic features (gender, first name, last name) were deliberately excluded to prevent bias
+- High precision (0.97) minimizes false positives that could unfairly impact legitimate customers
+- Model decisions may need human review for high-stakes situations
+
+## Technical Integration
+### Requirements
+- Python
+- Key Libraries:
+  - Pandas
+  - Scikit-learn
+  - XGBoost
+  - NumPy
+  - Geopandas
+  - GeoPy
+  - Matplotlib
+  - Seaborn
+  - RapidFuzz
+  - Weights & Biases (for model tracking)
+
+### Input Data Requirements
+- Transaction data must include:
+  - Transaction category
+  - Amount
+  - Time/date information
+  - Location data (coordinates preferred)
+  - Merchant information
+- Missing values should be handled according to the preprocessing pipeline
+
+## Recommendations
+1. Test model on small sample of real historical transaction data before full implementation
+2. Improve pipeline automation by removing hardcoded values
+3. Implement customer verification system for high-risk transactions
+4. Set up monitoring for transactions in high-risk categories
+5. Establish threshold controls during high-risk hours
+
+## Contact
+Author: Leslie Hanson  
+Email: lesliemhanson@gmail.com
+
+
+## Additional Resources
+- [Git Repository](https://github.com/LMHan122/Machine_Learning_Analysis_of_Bank_Fraud)
+- [Weights & Biases Project](https://wandb.ai/lhan122-student/credit_card_fraud)
+- [Interactive Dashboard](https://public.tableau.com/views/Model_dashboard_17341265980230/PublishedDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 <!-- Note any potential biases in the data
 - Include relevant demographics or distributions -->
 
