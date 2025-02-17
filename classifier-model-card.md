@@ -72,13 +72,8 @@ The following new features were created to enhance model performance:
   - Created new datetime-related columns: `date`, `year`, `month`, `day`, `week`, and `quarter`.  
   - Dropped `'trans_dt'` after extracting useful datetime components, as the original format was not model-compatible.  
 
-
-
-
 <!-- List and describe the main datasets used for training -->
 <!-- Include versions and dates of the datasets -->
-
-
 ### Data Preprocessing and Splitting 
 
 #### Preprocessing (`shared_utils.py`)
@@ -172,61 +167,4 @@ Email: lesliemhanson@gmail.com
 - [Git Repository](https://github.com/LMHan122/Machine_Learning_Analysis_of_Bank_Fraud)
 - [Weights & Biases Project](https://wandb.ai/lhan122-student/credit_card_fraud)
 - [Interactive Dashboard](https://public.tableau.com/views/Model_dashboard_17341265980230/PublishedDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-<!-- Note any potential biases in the data
-- Include relevant demographics or distributions -->
 
-<!-- ## Model Architecture
-- Model architecture details
-- Key hyperparameters
-- Number of parameters
-- Training infrastructure requirements
-
-## Performance Evaluation
-### Metrics
-- List primary evaluation metrics used
-- Include benchmark results
-- Provide context for interpreting the metrics
-
-### Testing Data
-- Describe evaluation datasets
-- Note any differences from training data
-- Include testing methodology
-
-## Limitations and Biases
-### Known Limitations
-- Technical limitations
-- Domain-specific limitations
-- Performance boundaries
-
-### Bias and Fairness Assessments
-- Results of bias evaluations
-- Fairness metrics across different groups
-- Identified disparities in performance
-
-## Ethical Considerations
-- Potential societal impacts
-- Privacy considerations
-- Environmental impact
-- Recommendations for responsible deployment
-
-## Maintenance
-### Updates and Maintenance Plan
-- Update frequency
-- Monitoring approach
-- Feedback collection process
-
-### Version History
-- List of previous versions
-- Notable changes
-- Deprecation schedule (if applicable)
-
-## Additional Information
-### Citations
-- Related research papers
-- Relevant documentation
-- Supporting materials
-
-### Contact Information
-- Maintenance team contact
-- Reporting issues
-- Support channels  -->
