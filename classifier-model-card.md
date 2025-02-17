@@ -47,6 +47,8 @@ The data was first explored in a Jupyter Notebook using Python, primarily utiliz
 The number of fraudulent transactions is 7,506, while the number of non-fraudulent transactions is 1,289,169.
 
 
+<!-- Add more graphs -->
+
 #### <u>Data Cleaning (`clean_data.py`)</u>  
 The following modifications were made during the first stage of data preparation:  
 
@@ -76,8 +78,8 @@ The following new features were created to enhance model performance:
 
 
 
-- List and describe the main datasets used for training
-- Include versions and dates of the datasets
+<!-- List and describe the main datasets used for training -->
+<!-- Include versions and dates of the datasets -->
 
 
 ### Data Preprocessing and Splitting 
@@ -95,10 +97,10 @@ The following new features were created to enhance model performance:
 - Saved the train/test datasets as Parquet files and uploaded them to W&B for versioning and reproducibility.
 
 
-- Note any potential biases in the data
-- Include relevant demographics or distributions
+<!-- Note any potential biases in the data
+- Include relevant demographics or distributions -->
 
-## Model Architecture
+<!-- ## Model Architecture
 - Model architecture details
 - Key hyperparameters
 - Number of parameters
@@ -152,4 +154,4 @@ The following new features were created to enhance model performance:
 ### Contact Information
 - Maintenance team contact
 - Reporting issues
-- Support channels
+- Support channels  -->
